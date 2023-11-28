@@ -1,0 +1,30 @@
+---
+import Heading from "./Heading.astro";
+import Card from "./Card.astro";
+const heading = { tagline: 'Servicios', headingText: 'Somos líderes en instalacion de puertas',descriptionText: 'Somos una empresa con más de 25 años de experiencia ubicada en Nuevo León. Comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto'}
+
+const featuresData = [
+  {icon: 'clipboard', title: 'Especificaciones', body: 'Desde la selección de materiales hasta las especificaciones de diseño, garantizamos una solución a la medida'},  
+  {icon: 'truck', title: 'Suministro', body: 'La entrega puntual y segura es nuestro compromiso. Garantizamos un transporte eficiente y sin problemas hasta sus instalaciones'},   
+  {icon: 'hammer', title: 'Instalación', body: 'Nuestros equipos de instaladores cuentan con una gran experiencia. Nos encargamos de todo el proceso con una atención al detalle'}, 
+  {icon: 'paint-bucket', title: 'Pintura', body: 'Solicite sus puertas y marcos en el color de su elección. Contamos con aplicación de pintura electrostática y proceso horneado'}]
+---
+
+
+<section class="bg-blue-50 py-28">  
+  <div class="container">
+    <div class="mx-auto max-w-prose text-center mb-20">
+    <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
+    </div>
+    <div class="even-columns gap-6">
+      {featuresData.map(feature => (
+        <Card>
+          <i class={`ph ph-${feature.icon} inline-block text-[32px] rounded-full p-4 text-red-700 bg-red-50 mb-6`}></i>   
+          <h5 class="text-2xl font-semibold mb-4 text-gray-900">{feature.title}</h5>
+          <p class="text-base">{feature.body}</p>      
+        </Card>
+      ))}  
+    </div>   
+   
+  </div>
+</section>

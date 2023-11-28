@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container {
+    @apply max-w-screen-xl mx-auto px-5 lg:px-6;
+  }
+
+  .even-columns {
+    @apply grid md:grid-flow-col md:auto-cols-[1fr];
+  }
+
+  /* .btn {
+    @apply cursor-pointer inline-flex justify-center items-center px-6 py-3 transition-colors duration-200 ease-in-out hover:shadow-sm;
+  }
+
+  .btn-primary {
+    @apply bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300;
+  } */
+}

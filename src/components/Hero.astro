@@ -1,0 +1,22 @@
+---
+import Button from './Button.astro'
+import ButtonOutline from './ButtonOutline.astro'
+import '../styles/global.css'
+---
+
+<section class="bg-white">
+  <div class="container grid py-20 gap-10 lg:gap-20 lg:py-28 lg:grid-cols-12">
+      <div class="mr-auto place-self-center lg:col-span-6">
+          <h1 class="max-w-2xl mb-6 text-gray-900 font-bold tracking-tight text-4xl md:text-5xl xl:text-6xl">Expertos en soluciones de acceso y carpintería</h1>
+          <p class="max-w-2xl mb-8 lg:mb-8 md:text-lg lg:text-xl">Somos una empresa con más de 25 años de experiencia ubicada en Nuevo León. Comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto</p>
+       
+            <Button text="Solicita Cotización" href="/contacto"/> 
+            <ButtonOutline text="Nuestros Servicios" href=""/>   
+       
+               
+      </div>
+      <div class="lg:mt-0 lg:col-span-6 lg:flex">
+      <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
+      </div>                
+  </div>
+</section>
