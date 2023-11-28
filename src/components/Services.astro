@@ -11,16 +11,16 @@ const featuresData = [
 ---
 
 
-<section class="bg-blue-50 py-28">  
+<section class="bg-gray-50 py-24">  
   <div class="container">
-    <div class="mx-auto max-w-prose text-center mb-20">
+    <div class="mx-auto max-w-prose text-center mb-16 ">
     <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
     </div>
     <div class="even-columns gap-6">
       {featuresData.map(feature => (
         <Card>
-          <i class={`ph ph-${feature.icon} inline-block text-[32px] rounded-full p-4 text-red-700 bg-red-50 mb-6`}></i>   
-          <h5 class="text-2xl font-semibold mb-4 text-gray-900">{feature.title}</h5>
+          <i class={`ph ph-${feature.icon} inline-block text-[32px] rounded-full p-4 text-primary-600 bg-primary-50 mb-5`}></i>   
+          <h5 class="text-xl font-semibold mb-4 text-gray-900">{feature.title}</h5>
           <p class="text-base">{feature.body}</p>      
         </Card>
       ))}  
@@ -28,3 +28,4 @@ const featuresData = [
    
   </div>
 </section>
+
