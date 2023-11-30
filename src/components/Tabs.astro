@@ -7,6 +7,37 @@ export interface Props {
 
 const {headings, contents, activeTextColor = '#1d4ed8'} = Astro.props as Props; 
 ---    
+
+
+<div class="tabs max-w-4xl mx-auto text-center text-sm lg:text-base font-medium border-b border-gray-200 mb-12">
+  <ul class="tabs-header flex flex-wrap lg:justify-between -mb-px">
+    <li class="me-2"><a href="" class="tab inline-block px-2 py-4 lg:px-4 border-b-2 rounded-t-lg text-blue-600 border-blue-600 active">Puertas Metálicas</a></li>
+    <li class="me-2"><a href="" class="tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">Puertas Especiales</a></li>
+    <li class="me-2"><a href="" class="tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">Puertas Madera</a></li>
+    <li class="me-2"><a href="" class="tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">Marcos Metálicos</a></li>
+    <li class=""><a href="" class="tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">Carpintería</a></li>
+  </ul>
+</div>
+
+
+<script>
+  const tabsContainer = document.querySelector('.tabs')
+  const tabsList = tabsContainer.querySelector('.tabs-header')
+  const tabButtons = tabsList.querySelectorAll('.tab')
+  tabsContainer.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
+    const clickedTab = target.closest("a"); 
+    if(!clickedTab) return; 
+    console.log(clickedTab);
+    e.preventDefault(); 
+  })
+
+</script>
+
+
+
+
+<!-- 
   <div class="tabs">
     <ul class="tabs-header flex justify-center ">
       {headings.map(heading => (
@@ -18,33 +49,11 @@ const {headings, contents, activeTextColor = '#1d4ed8'} = Astro.props as Props;
          <li class="tab"><code>{content}</code></li>
       ))}    
     </ul>
-  </div>
+  </div> -->
 
-<style>
-  /* Tabs */
-  .tabs {
-      margin-top: 30px;           
-    }
 
-    /* .tabs-header {     
-      padding: 10px 20px;
-    } */
 
-    .tabs-header li {
-      margin-right: 20px;
-      cursor: pointer;
-    }
-
-    .tabs-content {
-      font-size: 18px;
-      padding: 20px;
-      border: 1px solid #333;
-      font-weight: bold;
-      background: #f4f4f4; 
-      width: 100%;      
-    }    
-</style>
-
+<!--  
 <script define:vars={{activeTextColor}}>
   function createTabs(element) {
   const header = element.querySelector('.tabs-header');
@@ -77,4 +86,4 @@ const {headings, contents, activeTextColor = '#1d4ed8'} = Astro.props as Props;
 
 // Run
 [...document.querySelectorAll('.tabs')].forEach((x) => createTabs(x));
-</script>
+</script> -->

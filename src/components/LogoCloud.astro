@@ -6,16 +6,16 @@ const images = await Astro.glob('../assets/logos/*').then(files => {
 const heading = { headingText: 'Algunas de las marcas de nivel mundial con las que trabajamos',descriptionText: 'Somos distribuidores de las marcas líderes del mercado'}
 
 ---
-<section class="py-10 sm:py-16 lg:py-20">
+<section class="py-10 sm:py-16 lg:py-28">
   <div class="container">
     <div class="mx-auto max-w-prose text-center mb-12">
-      <h3 class="text-2xl font-bold text-gray-800 sm:text-4xl sm:leading-tight">{heading.headingText}</h3>    
+      <h3 class="text-2xl font-bold text-gray-900 sm:text-4xl sm:leading-tight">{heading.headingText}</h3>    
     </div>: 
-    <div class="grid items-center justify-center max-w-4xl grid-cols-2 md:grid-cols-5 mx-auto gap-x-10 gap-y-16 ">             
+    <div class="grid items-center justify-center max-w-4xl grid-cols-3 md:grid-cols-5 mx-auto gap-x-10 gap-y-16 ">             
         {images.map(image => (
               <div class="">
                 <img
-                  class="object-contain w-32 h-14"
+                  class="object-contain w-full h-10"
                   src={image.src}
                   alt={image.alt}
                   loading="lazy"
