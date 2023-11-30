@@ -1,7 +1,7 @@
 ---
 import Heading from "./Heading.astro";
 import Card from "./Card.astro";
-const heading = { tagline: 'Servicios', headingText: 'Somos líderes en instalacion de puertas',descriptionText: 'Somos una empresa con más de 25 años de experiencia ubicada en Nuevo León. Comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto'}
+const heading = { tagline: 'Servicios', headingText: 'Tu proyecto en mano de expertos',descriptionText: 'Creamos una experiencia que te ayudará en cada iteracción del proceso para que puedas dormir tranquilo'}
 
 const featuresData = [
   {icon: 'clipboard', title: 'Especificaciones', body: 'Desde la selección de materiales hasta las especificaciones de diseño, garantizamos una solución a la medida'},  
@@ -13,14 +13,14 @@ const featuresData = [
 
 <section class="py-28">  
   <div class="container">
-    <div class="mx-auto max-w-prose text-center mb-16 ">
-    <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
+    <div class="mx-auto text-center mb-16 ">
+      <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
     </div>
-    <div class="even-columns gap-6">
+    <div class="even-columns gap-8">
       {featuresData.map(feature => (
         <Card>
           <i class={`ph ph-${feature.icon} inline-block text-[32px] rounded-full p-4 text-primary-600 bg-primary-50 mb-5`}></i>   
-          <h5 class="text-xl font-semibold mb-4 text-gray-900">{feature.title}</h5>
+          <h5 class="text-xl font-medium mb-2 text-gray-900">{feature.title}</h5>
           <p class="text-base">{feature.body}</p>      
         </Card>
       ))}  

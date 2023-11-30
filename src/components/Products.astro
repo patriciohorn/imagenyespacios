@@ -15,7 +15,7 @@ const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR,
 
 <section class="py-28">
   <div class="container">
-    <div class="mx-auto max-w-prose text-center mb-16">
+    <div class="mx-auto text-center mb-16">
       <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
       </div>
       <div class=" mx-auto">
@@ -24,12 +24,12 @@ const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR,
       <div class="even-columns gap-6 mb-8">
         <div>
           <div class="mb-8">
-            <h3 class="text-3xl text-gray-900 leading-[1.2] font-bold mb-4">Puertas metálicas de acero</h3>
+            <h3 class="text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas metálicas de acero</h3>
             <p class="text-lg">Las puertas metálicas de acero son fabricadas con dos hojas de acero lisas y sin marcas de soldadura, con abatimiento universal que permite instalarse en aperturas izquierdas o derechas </p>
           </div> 
-          <div class=mb-10>
+          <div class="mb-16">
             <p class="font-bold mb-6">Construcción:</p>
-            <ul>
+            <ul class="text-lg">
               {doorSpecs.map(spec => (
                 <li class="flex items-start gap-3 max-w-prose mb-4">
                 <i class="ph-duotone ph-check-circle text-[28px] text-primary-600"></i>
