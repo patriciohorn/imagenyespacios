@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets"; 
+import brembo from '../assets/brembo.png'
+import sungwoo from '../assets/sungwoo.png'
+import lego from '../assets/lego.png'
+import whirlpool from '../assets/whirlpool.png'
+
+
+import Heading from "./Heading.astro";
+import BlogCard from "./BlogCard.astro";
+const heading = { tagline: 'Proyectos', headingText: 'Explora nuestra trayectoria en grandes obras',descriptionText: 'Descubre algunos de nuestros proyectos más recientes y destacados'}
+
+const projectsData = [
+  { 
+    img: brembo,
+    altText: 'Planta de empresa Brembo',  
+    title: 'Brembo', 
+    description: 'Planta Escobedo Nuevo León'
+  }, 
+  { 
+    img: sungwoo,
+    altText: 'Planta de empresa Sungwoo', 
+    title: 'Sungwoo', 
+    description: 'Planta Pesquería Nuevo León'
+  }, 
+  { 
+    img: lego,
+    altText: 'Planta de empresa Lego', 
+    title: 'Lego', 
+    description: 'Planta Ciénega de Flores Nuevo León'
+  }, 
+  { 
+    img: whirlpool,
+    altText: 'Planta de empresa Whirlpool', 
+    title: 'Whirlpool', 
+    description: 'Planta Apodaca Nuevo León'
+  }, 
+  { 
+    img: whirlpool,
+    altText: 'Planta de empresa Whirlpool', 
+    title: 'Whirlpool', 
+    description: 'Planta Apodaca Nuevo León'
+  }, 
+  { 
+    img: whirlpool,
+    altText: 'Planta de empresa Whirlpool', 
+    title: 'Whirlpool', 
+    description: 'Planta Apodaca Nuevo León'
+  }
+  ];
+---
+
+<section class="py-32 -mb-4">
+  <div class="container">
+    <div class="mb-24">
+      <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
+    </div> 
+    <div class="flex flex-wrap -m-4">
+      {
+      projectsData.map((project) => (
+        <BlogCard title={project.title} description={project.description}>
+          <Image src={project.img} alt={project.altText} />
+        </BlogCard>
+      ))}  
+    </div>
+  </div>
+</section>
+

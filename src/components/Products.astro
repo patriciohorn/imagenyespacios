@@ -7,15 +7,15 @@ import Tabs from "./Tabs.astro"
 const certImages = await Astro.glob('../assets/certificaciones/*').then(files => {
     return files.map(file => file.default)
 })
-const heading = { tagline: 'Productos', headingText: 'Explora nuestra amplia gama de productos',descriptionText: 'Ofrecemos una gama completa de productos y servicios para satisfacer todas tus necesidades'}
+const heading = { tagline: 'Productos', headingText: 'Conoce las soluciones para tu proyecto',descriptionText: 'Ofrecemos una gama completa de productos y servicios para satisfacer todas tus necesidades'}
 
 const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR, perfecto para condiciones normales o secas', 'El relleno interior ofrece versatilidad total: elige entre poliestireno, honeycomb o lana mineral según tus necesidades', 'Nuestro acabado de fábrica es un recubrimiento de primario anticorrosivo gris, lista para personalizar con el color que prefiera. Además, puede solicitar nuestras puertas y marcos en una gama de colores RAL con pintura electrostática y horneado']
 
 ---
 
-<section class="py-28">
+<section class="py-32">
   <div class="container">
-    <div class="mx-auto text-center mb-16">
+    <div class="mx-auto max-w-2xl text-center mb-20">
       <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
       </div>
       <div class=" mx-auto">
@@ -27,9 +27,9 @@ const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR,
             <h3 class="text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas metálicas de acero</h3>
             <p class="text-lg">Las puertas metálicas de acero son fabricadas con dos hojas de acero lisas y sin marcas de soldadura, con abatimiento universal que permite instalarse en aperturas izquierdas o derechas </p>
           </div> 
-          <div class="mb-16">
+          <div class="mb-12">
             <p class="font-bold mb-6">Construcción:</p>
-            <ul class="text-lg">
+            <ul class="text-base">
               {doorSpecs.map(spec => (
                 <li class="flex items-start gap-3 max-w-prose mb-4">
                 <i class="ph-duotone ph-check-circle text-[28px] text-primary-600"></i>
