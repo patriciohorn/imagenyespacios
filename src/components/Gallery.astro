@@ -1,0 +1,33 @@
+---
+import Heading from './Heading.astro'
+import { Image } from 'astro:assets'
+
+import galleryOne from '../assets/gallery/gallery_1.png'
+import galleryTwo from '../assets/gallery/gallery_2.png'
+import galleryThree from '../assets/gallery/gallery_3.png'
+import galleryFour from '../assets/gallery/gallery_4.png'
+import galleryFive from '../assets/gallery/gallery_5.png'
+import gallerySix from '../assets/gallery/gallery_6.png'
+import gallerySeven from '../assets/gallery/gallery_7.png'
+import galleryEight from '../assets/gallery/gallery_8.png'
+import galleryNine from '../assets/gallery/gallery_9.png'
+import galleryTen from '../assets/gallery/gallery_10.png'
+import galleryEleven from '../assets/gallery/gallery_11.png'
+import galleryTwelve from '../assets/gallery/gallery_12.png'
+
+const galleryImages = [galleryOne, galleryTwo, galleryThree, galleryFour,galleryFive, gallerySix,gallerySeven, galleryEight, galleryNine, galleryTen, galleryEleven, galleryTwelve]
+---
+
+
+
+<section class='bg-white py-24'> 
+  <div class="container">      
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">     
+      {galleryImages.map((galleryImage) => (
+        <figure class="overflow-hidden rounded-lg">
+        <Image src={galleryImage} alt="Puerta peatonal" class="max-w-full h-auto hover:scale-110 transition-all duration-500 ease-out" />
+      </figure>
+      ))}
+    </div>
+  </div>
+</section>

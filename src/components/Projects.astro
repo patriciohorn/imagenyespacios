@@ -3,11 +3,13 @@ import { Image } from "astro:assets";
 import brembo from '../assets/brembo.png'
 import sungwoo from '../assets/sungwoo.png'
 import lego from '../assets/lego.png'
-import whirlpool from '../assets/whirlpool.png'
+// import whirlpool from '../assets/whirlpool.png'
 
 
 import Heading from "./Heading.astro";
 import BlogCard from "./BlogCard.astro";
+import Button from './Button.astro'
+
 const heading = { tagline: 'Proyectos', headingText: 'Explora nuestra trayectoria en grandes obras',descriptionText: 'Descubre algunos de nuestros proyectos más recientes y destacados'}
 
 const projectsData = [
@@ -28,34 +30,16 @@ const projectsData = [
     altText: 'Planta de empresa Lego', 
     title: 'Lego', 
     description: 'Planta Ciénega de Flores Nuevo León'
-  }, 
-  { 
-    img: whirlpool,
-    altText: 'Planta de empresa Whirlpool', 
-    title: 'Whirlpool', 
-    description: 'Planta Apodaca Nuevo León'
-  }, 
-  { 
-    img: whirlpool,
-    altText: 'Planta de empresa Whirlpool', 
-    title: 'Whirlpool', 
-    description: 'Planta Apodaca Nuevo León'
-  }, 
-  { 
-    img: whirlpool,
-    altText: 'Planta de empresa Whirlpool', 
-    title: 'Whirlpool', 
-    description: 'Planta Apodaca Nuevo León'
-  }
+  }  
   ];
 ---
 
-<section class="py-32 -mb-4">
-  <div class="container">
-    <div class="mb-24">
+<section id="proyectos" class="bg-gray-50 py-24 -mb-4">
+  <div class="container flex flex-col">
+    <div class="mb-20">
       <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
     </div> 
-    <div class="flex flex-wrap -m-4">
+    <div class="even-columns gap-8 mb-12">
       {
       projectsData.map((project) => (
         <BlogCard title={project.title} description={project.description}>
@@ -63,6 +47,8 @@ const projectsData = [
         </BlogCard>
       ))}  
     </div>
+    <div class="text-center">
+      <Button text="Más Proyectos" href="/proyectos" />
+    </div>    
   </div>
 </section>
-
