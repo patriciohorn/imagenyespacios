@@ -11,21 +11,27 @@ const featuresData = [
 ---
 
 
-<section class="py-32">  
-  <div class="container">
-    <div class="mx-auto max-w-2xl text-center mb-20">
+<section class="bg-gray-50">  
+  <div class="container py-16 sm:py-28">
+    <div class="max-w-2xl mb-8 lg:mb-16 mx-auto text-center">
       <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
     </div>
-    <div class="even-columns gap-8">
+    <div class="even-columns gap-12">
       {featuresData.map(feature => (
         <Card>
-          <i class={`ph ph-${feature.icon} inline-block text-[32px] rounded-full p-4 text-primary-600 bg-primary-50 mb-5`}></i>   
-          <h3 class="text-xl font-semibold mb-2 text-gray-900">{feature.title}</h3>
-          <p class="text-base">{feature.body}</p>      
+        <div>
+          <div class="flex justify-center items-center mx-auto mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12">
+            <i class={`ph-fill ph-${feature.icon} text-xl sm:text-2xl text-primary-600`}></i>   
+          </div>          
+          <h3 class="text-xl font-bold mb-2 text-gray-900">{feature.title}</h3>
+          <p>{feature.body}</p> 
+        </div>              
         </Card>
       ))}  
     </div>   
    
   </div>
 </section>
+
+
 

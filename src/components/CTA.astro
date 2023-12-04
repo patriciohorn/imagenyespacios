@@ -5,12 +5,15 @@ const heading = { tagline: 'Contactanos', headingText: 'Comencemos tu proyecto a
 ---
 
 
-<section class="py-20 text-center border border-gray">
-  <div class="container">
-    <div class="mb-8">
-      <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
+<section class="border border-gray">
+  <div class="container py-16 sm:py-28">
+    <div class="mx-auto max-w-screen-sm text-center">
+      <div class="mb-8">
+        <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
+      </div>
+      <Button text="Solicita Cotización" href="/contacto"/> 
     </div>
-    <Button text="Solicita Cotización" href="/contacto"/> 
+   
   </div>
     
 </section>

@@ -4,13 +4,13 @@ import Heading from './Heading.astro'
 const images = await Astro.glob('../assets/logos/*').then(files => {
     return files.map(file => file.default)
 })
-const heading = { headingText: 'Algunas de las marcas de nivel mundial con las que trabajamos',descriptionText: 'Somos distribuidores de las marcas líderes del mercado'}
+const heading = { headingText: 'Algunas de las marcas de nivel mundial con las que trabajamos'}
 
 ---
 <section class="py-10 sm:py-16 lg:py-28">
   <div class="container">
     <div class="mx-auto max-w-prose text-center mb-12">     
-      <Heading headingText={heading.headingText}/>    
+      <h3 class="scroll-m-20 text-3xl md:text-4xl tracking-tight font-bold leading-[1.2] text-gray-900 mb-20">{heading.headingText}</h3>    
     </div>: 
     <div class="grid items-center justify-center max-w-4xl grid-cols-3 md:grid-cols-5 mx-auto gap-x-10 gap-y-16 ">             
         {images.map(image => (

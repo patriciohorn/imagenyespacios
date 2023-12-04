@@ -7,22 +7,26 @@ import Tabs from "./Tabs.astro"
 const certImages = await Astro.glob('../assets/certificaciones/*').then(files => {
     return files.map(file => file.default)
 })
-const heading = { tagline: 'Productos', headingText: 'Conoce las soluciones para tu proyecto',descriptionText: 'Ofrecemos una gama completa de productos y servicios para satisfacer todas tus necesidades'}
+const heading = { tagline: 'Productos', headingText: 'Conoce las Soluciones para tu Proyecto',descriptionText: 'Ofrecemos una gama completa de productos y servicios para satisfacer todas tus necesidades'}
 
 const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR, perfecto para condiciones normales o secas', 'El relleno interior ofrece versatilidad total: elige entre poliestireno, honeycomb o lana mineral según tus necesidades', 'Nuestro acabado de fábrica es un recubrimiento de primario anticorrosivo gris, lista para personalizar con el color que prefiera. Además, puede solicitar nuestras puertas y marcos en una gama de colores RAL con pintura electrostática y horneado']
 
 ---
 
-<section class="py-32">
-  <div class="container">
-    <div class="mx-auto max-w-2xl text-center mb-20">
+<section>
+  <div class="container py-16 sm:py-28">
+    <!-- Section Heading -->
+    <div class="max-w-2xl mb-8 lg:mb-16 mx-auto text-center">
       <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
       </div>
-      <div class=" mx-auto">
+      <!-- Tabs -->
+      <div class="mx-auto mb-12">        
         <Tabs headings={['Puertas Metálicas', 'Puertas Especiales', 'Puertas Madera', "Marcos Metálicos", "Carpintería"]} contents={["$ npm create astro@latest", "$ pnmp create astro@latest", "yarn create astro"]} />
       </div>
-      <div class="even-columns gap-6 mb-8">
-        <div>
+
+      <!-- Tab Content -->
+      <div class="even-columns">
+        <article>
           <div class="mb-8">
             <h3 class="text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas metálicas de acero</h3>
             <p class="text-lg">Las puertas metálicas de acero son fabricadas con dos hojas de acero lisas y sin marcas de soldadura, con abatimiento universal que permite instalarse en aperturas izquierdas o derechas </p>
@@ -32,7 +36,7 @@ const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR,
             <ul class="text-base">
               {doorSpecs.map(spec => (
                 <li class="flex items-start gap-3 max-w-prose mb-4">
-                <i class="ph-duotone ph-check-circle text-[28px] text-primary-600"></i>
+                <i class="ph-duotone ph-check-circle text-[28px] text-primary-800"></i>
                 {spec}
               </li>
               ))}              
@@ -45,7 +49,7 @@ const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR,
           }
           </div>
           
-        </div>
+        </article>
         <div>
           <!-- Door cards -->
         </div>
