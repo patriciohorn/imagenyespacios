@@ -6,17 +6,23 @@ export default {
   ],
   theme: {
     colors: {
-      'primary-50': '#eff6ff',
-      'primary-100': '#dbeafe',
-      'primary-200': '#bfdbfe',
-      'primary-300': '#93c5fd',
-      'primary-400': '#60a5fa',
-      'primary-500': '#3b82f6',
-      'primary-600': '#2563eb',
-      'primary-700': '#1d4ed8',
-      'primary-800': '#1e40af',
-      'primary-900': '#1e3a8a',
-      'primary-950': '#172554'
+      primary: {
+        50: '#FFFBFF',
+        100: '#DEE0FF',
+        200: '#BBC3FF',
+        300: '#98A5FD',
+        400: '#4A58A9',
+        500: '#3E4B9C',
+        600: '#323F90',
+        700: '#253384',
+        800: '#182778',
+        900: '#000E5E'
+      },
+      secondary: {
+        100: '#FBEAEA',
+        500: '#DA2C2B',
+        600: '#C62827'
+      }
     },
     extend: {}
   },

@@ -1,5 +1,5 @@
 ---
-import { SlotString } from 'astro/runtime/server/render/slot.js';
+
 export interface Props {
   tagline?: string; 
   headingText: string; 
@@ -10,7 +10,7 @@ const {tagline, headingText, descriptionText } = Astro.props as Props
 ---
 
 
-  <span class="inline-block text-sm lg:text-base font-semibold mb-2 text-primary-800">{tagline}</span>
+  <span class="inline-block text-sm lg:text-base font-semibold mb-2 text-primary-600">{tagline}</span>
   <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900">{headingText}</h2>
   <p class="sm:text-xl">{descriptionText}</p>   
 

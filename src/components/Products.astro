@@ -1,5 +1,5 @@
 ---
-import { imageConfig } from "astro:assets";
+// import { imageConfig } from "astro:assets";
 import Heading from "./Heading.astro";
 import Tabs from "./Tabs.astro"
 
@@ -32,11 +32,11 @@ const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR,
             <p class="text-lg">Las puertas metálicas de acero son fabricadas con dos hojas de acero lisas y sin marcas de soldadura, con abatimiento universal que permite instalarse en aperturas izquierdas o derechas </p>
           </div> 
           <div class="mb-12">
-            <p class="font-bold mb-6">Construcción:</p>
+            <p class="font-bold mb-6 text-gray-900">Construcción:</p>
             <ul class="text-base">
               {doorSpecs.map(spec => (
                 <li class="flex items-start gap-3 max-w-prose mb-4">
-                <i class="ph-duotone ph-check-circle text-[28px] text-primary-800"></i>
+                <i class="ph-duotone ph-check-circle text-[28px] text-secondary-600"></i>
                 {spec}
               </li>
               ))}              

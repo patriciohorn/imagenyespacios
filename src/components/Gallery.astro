@@ -1,5 +1,5 @@
 ---
-import Heading from './Heading.astro'
+// import Heading from './Heading.astro'
 import { Image } from 'astro:assets'
 
 import galleryOne from '../assets/gallery/gallery_1.png'
@@ -20,11 +20,11 @@ const galleryImages = [galleryOne, galleryTwo, galleryThree, galleryFour,gallery
 
 
 
-<section class='bg-blue-900'> 
+<section class=''> 
   <div class="container py-16 sm:py-28">      
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">     
       {galleryImages.map((galleryImage) => (
-        <figure class="overflow-hidden rounded-2xl">
+        <figure class="overflow-hidden rounded-lg">
         <Image src={galleryImage} alt="Puerta peatonal" class="max-w-full h-auto hover:scale-110 transition-all duration-500 ease-out" />
       </figure>
       ))}
