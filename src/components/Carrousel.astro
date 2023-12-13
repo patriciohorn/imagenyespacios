@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import ProductCard from "./ProductCard.astro";
+
+
+// Cards Images
+import metalicaEstandar from '../assets/productos/metalica-estandar.png'
+import emergencias from '../assets/productos/emergencias.png'
+import antivandalica from '../assets/productos/antivandalica.png'
+import contraFuego from '../assets/productos/contraFuego.png'
+import multiusos from '../assets/productos/multiusos.png'
+
+const cardsContent = [
+  {title: 'Puerta Estándar', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar},
+  {title: 'Salida de Emergencia', body: 'Esencial en edificios con alto tráfico peatonal, esta puerta de emergencia facilita la evacuación inmediata al presionar la barra antipánico, ya sea para rutas de evacuación o salidas directas al exterior en situaciones de emergencia', img: emergencias}, 
+  {title: 'Contra Fuego', body: 'Su función primordial es prevenir la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio. Puediendo contar con certificación cuando se cuenta con todos los elementos necesarios para mantenerse sellada y sin mirillas', img: antivandalica}, 
+  {title: 'Antivandálica Steel Stiffened', body: 'Fabricada en lámina galvanizada, incorpora refuerzos longitudinales interiores de calibre 18 y relleno de fibra de vidrio entre ellos. Ideal para áreas expuestas a exteriores y alto tráfico, proporciona una resistencia excepcional y mayor resistencia y protección ante ataques vandálicos', img: contraFuego}, 
+  {title: 'Puerta Multiusos', body: 'Puerta y marco diseñados para uso moderado, sin requerimientos de certificación contra incendio. Ofrecemos una solución integral y económica que incluye marco, bisagras y cerradura', img: multiusos},     
+  ]
+---
+
+
+<div class="swiper">
+  <div class="swiper-wrapper">      
+        {
+          cardsContent.map((card) => (
+            <ProductCard title={card.title} body={card.body}>
+              <Image src={card.img} alt="puerta metálica estándar"/>             
+            </ProductCard>
+          ))
+         }                     
+  </div>
+    
+  <!-- If we need navigation buttons -->    
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>  
+</div>
+
+
+<style>
+  .swiper{
+    padding-block: 80px; 
+  }
+ 
+  
+:is(.swiper-button-next, .swiper-button-prev){
+  --swiper-navigation-top-offset: 47%; 
+  --swiper-navigation-sides-offset: 8%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;  
+  border: none; 
+  background: rgb(12, 59, 143, 0.6); 
+  color: rgba(255,255,255,0.8); 
+  border-radius: 50%; 
+  height: 40px;
+  width: 40px; 
+  cursor: pointer;
+  padding: 16px;    
+}
+
+:is(.swiper-button-next, .swiper-button-prev):hover{
+  background: hsl(219, 84%, 24%, 0.8); 
+  color: rgba(255,255,255);     
+  transition: background;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)  
+}
+
+.swiper-button-prev:after, .swiper-button-next:after{
+  font-size: 16px; 
+  font-weight: 700; 
+}
+
+.swiper-pagination {
+    --swiper-theme-color: rgb(12, 59, 143);
+    --swiper-pagination-bullet-inactive-color: rgb(109, 137, 188); 
+    --swiper-pagination-bottom: 48px;        
+  }
+
+</style>
+
+
+<script>
+  import '../js/swiper.js'
+</script>

@@ -30,4 +30,8 @@
   .gallery-grid-row {
     grid-template-rows: repeat(3, minmax(0, 0.45fr));
   }
+
+  .tab.active {
+    @apply text-primary-500 border-primary-500 hover:border-primary-500;
+  }
 }

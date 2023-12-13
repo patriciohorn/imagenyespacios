@@ -1,89 +1,171 @@
 ---
+import Carrousel from './Carrousel.astro'
+import ansi from '../assets/certificaciones/ansi.svg'
+import fmApproved from '../assets/certificaciones/fm-approved.svg'
+import greenBuilding from '../assets/certificaciones/green-building.svg'
+import naamm from '../assets/certificaciones/naamm.svg'
+import nfpa from '../assets/certificaciones/nfpa.svg'
+import shield from '../assets/certificaciones/shield.svg'
+import soundProof from '../assets/certificaciones/sound-proof.svg'
+import ul from '../assets/certificaciones/ul.svg'
+
 export interface Props {
   activeTextColor? : string; 
-  headings: string[]; 
-  contents: string[]; 
+  headings: string[];    
 }
 
-const {headings, contents, activeTextColor = '#1d4ed8'} = Astro.props as Props; 
+const {headings, activeTextColor = '#1d4ed8'} = Astro.props as Props; 
+
+const tabTitle = ['Puertas Metálicas', 'Puertas Especiales', 'Puertas Madera', 'Marcos Metálicos', 'Carpintería']
+
+const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR, perfecto para condiciones normales o secas', 'El relleno interior ofrece versatilidad total: elige entre poliestireno, honeycomb o lana mineral según tus necesidades', 'Nuestro acabado de fábrica es un recubrimiento de primario anticorrosivo gris, lista para personalizar con el color que prefiera. Además, puede solicitar nuestras puertas y marcos en una gama de colores RAL con pintura electrostática y horneado']
+
+const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta tres horas ', 'Acabado de Fábrica: Recubrimiento de primer anticorrosivo en color gris', 'Posibilidad de pintar la puerta en el color de elección del cliente después de la compra', 'Disponible la opción de solicitar puertas y marcos pre-pintados de fábrica', 'Opción de solicitar puertas y marcos pre-pintados de fábrica en colores específicos del código RAL mediante pintura electrostática y proceso de horneado']
 ---    
 
 
-<div class="tabs max-w-4xl mx-auto text-center font-medium border-b border-gray-200 mb-12">
-  <ul class="tabs-header flex flex-wrap lg:justify-between -mb-px">
-    <li class="me-2"><a href="" class="tab inline-block px-2 py-4 lg:px-4 border-b-2 rounded-t-lg text-primary-600 border-primary-600 active">Puertas Metálicas</a></li>
-    <li class="me-2"><a href="" class="tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">Puertas Especiales</a></li>
-    <li class="me-2"><a href="" class="tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">Puertas Madera</a></li>
-    <li class="me-2"><a href="" class="tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">Marcos Metálicos</a></li>
-    <li class=""><a href="" class="tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">Carpintería</a></li>
+<div class="border-b border-gray-200">
+  <ul class="tabs-header flex flex-wrap text-sm font-medium text-center -mb-px">
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:px-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300 active">Puertas Metálicas</li>
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Puertas Especiales</li>
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Puertas Madera</li>
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Marcos Metálicos</li>
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Carpintería</li>
   </ul>
 </div>
 
+<!-- Tab Content -->
+<div class="tab-content active | mt-6">
+  <div class="even-columns | gap-12 md:gap-20">
+      <div class="px-6 pt-6">
+        <div class="mb-8">
+          <h3 class="text-2xl sm:text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas metálicas de acero</h3>
+          <p class=" text-lg">Las puertas metálicas de acero son fabricadas con dos hojas de acero lisas y sin marcas de soldadura, con abatimiento universal que permite instalarse en aperturas izquierdas o derechas </p>
+        </div> 
+        <div class="mb-8">
+          <p class="font-bold mb-4 text-gray-900">Construcción:</p>
+          <ul class="text-base">
+            {doorSpecs.map(spec => (
+              <li class="flex items-start gap-2.5 max-w-prose mb-3">
+              <i class="ph-fill ph-check-circle text-lg text-primary-500"></i>
+              {spec}
+            </li>
+            ))}              
+          </ul>
+        </div>           
+        
+        <!-- Certificaciones -->
+        <ul class="flex flex-wrap items-center justify-between px-8">
+          <li class="me-2"><img src={ansi.src} alt="logo certificación ansi" class="w-14 h-auto"></li>
+          <li class="me-2"><img src={fmApproved.src} alt="logo certificación fm-approved" class="w-14 h-auto"></li>
+          <li class="me-2"><img src={greenBuilding.src} alt="logo certificación green-building" class="w-10 h-auto"></li>
+          <li class="me-2"><img src={naamm.src} alt="logo certificación NAAMM" class="w-14 h-auto"></li>
+          <li class="me-2"><img src={nfpa.src} alt="logo certificación NFPA" class="w-8 h-auto"></li>
+          <li class="me-2"><img src={shield.src} alt="logo seguridad" class="w-8 h-auto"></li>
+          <li class="me-2"><img src={soundProof.src} alt="logo acústico" class="w-8 h-auto"></li>
+          <li><img src={ul.src} alt="logo UL" class="w-8 h-auto"></li>
+        </ul>
+        
+        
+      </div>
+      <div class="carrousel-fade | relative rounded-xl overflow-hidden flex items-center before:bg-gradient-to-r before:from-white before:to-[hsla(255, 255%, 255%, 9)] after:bg-gradient-to-l after:from-white after:to-[hsla(255, 255%, 255%, 9)]">                      
+        <Carrousel />     
+      </div>  
+  </div>
+</div>        
+ 
+<!-- Tab Content -->
+<div class="tab-content | mt-6">
+    <div class="even-columns | gap-12 md:gap-20">
+      <div class="px-6 pt-6">
+        <div class="mb-8">
+          <h3 class="text-2xl sm:text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas Especiales</h3>
+          <p class=" text-lg">Estas puertas de acero se fabrican con características especiales adaptadas a necesidades específicas, utilizando lámina de acero rolado en frío o acero galvanizado según la especificación</p>
+        </div> 
+        <div class="mb-8">          
+          <ul class="text-base">
+            {especialesSpecs.map(spec => (
+              <li class="flex items-start gap-2.5 max-w-prose mb-3">
+              <i class="ph-fill ph-check-circle text-lg text-primary-500"></i>
+              {spec}
+            </li>
+            ))}              
+          </ul>
+        </div>           
+        
+        <!-- Certificaciones -->
+        <ul class="flex flex-wrap items-center justify-between px-8">
+          <li class="me-2"><img src={ansi.src} alt="logo certificación ansi" class="w-14 h-auto"></li>
+          <li class="me-2"><img src={fmApproved.src} alt="logo certificación fm-approved" class="w-14 h-auto"></li>
+          <li class="me-2"><img src={greenBuilding.src} alt="logo certificación green-building" class="w-10 h-auto"></li>
+          <li class="me-2"><img src={naamm.src} alt="logo certificación NAAMM" class="w-14 h-auto"></li>
+          <li class="me-2"><img src={nfpa.src} alt="logo certificación NFPA" class="w-8 h-auto"></li>
+          <li class="me-2"><img src={shield.src} alt="logo seguridad" class="w-8 h-auto"></li>
+          <li class="me-2"><img src={soundProof.src} alt="logo acústico" class="w-8 h-auto"></li>
+          <li><img src={ul.src} alt="logo UL" class="w-8 h-auto"></li>
+        </ul>
+        
+        
+      </div>
+      <div class="carrousel-fade | relative rounded-xl overflow-hidden flex items-center before:bg-gradient-to-r before:from-white before:to-[hsla(255, 255%, 255%, 9)] after:bg-gradient-to-l after:from-white after:to-[hsla(255, 255%, 255%, 9)]">                      
+        <Carrousel />     
+      </div>  
+    </div>          
+</div>
+  
+   
+  
 
+
+<style>
+   .carrousel-fade:after, .carrousel-fade:before {
+        content: ""; 
+        position: absolute; 
+        top: 0; 
+        bottom: 0; 
+        width: 48px; 
+        pointer-events: none; 
+        z-index: 10; 
+      }
+    
+      .carrousel-fade:after {
+        right: 0; 
+      }
+    
+      .tab-content {
+        display: none;
+        animation: moving .5s ease; 
+      }
+
+      @keyframes moving {
+        from{
+          transform: translateX(50px); 
+          opacity: 0; 
+        }
+
+        to {
+          transform: translateX(0); 
+          opacity: 1; 
+        }
+      }
+    
+      .tab-content.active {
+        display: block; 
+      }
+</style>
 <script>
-  const tabsContainer = document.querySelector('.tabs')
-  const tabsList = tabsContainer.querySelector('.tabs-header')
-  const tabButtons = tabsList.querySelectorAll('.tab')
-  tabsContainer.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement
-    const clickedTab = target.closest("a"); 
-    if(!clickedTab) return; 
-    console.log(clickedTab);
-    e.preventDefault(); 
+ const tabs = document.querySelectorAll('.tab');
+ const allContent = document.querySelectorAll('.tab-content')
+ 
+ tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(tab => tab.classList.remove('active'));
+    tab.classList.add('active');
+    
+    allContent.forEach(content => content.classList.remove('active'))
+    allContent[index].classList.add('active')
   })
-
+ })
 </script>
 
 
-
-
-<!-- 
-  <div class="tabs">
-    <ul class="tabs-header flex justify-center ">
-      {headings.map(heading => (
-        <li class="text-gray-700 px-6 py-3">{heading}</li>
-      ))}
-    </ul>
-    <ul class="tabs-content">
-      {contents.map(content => (
-         <li class="tab"><code>{content}</code></li>
-      ))}    
-    </ul>
-  </div> -->
-
-
-
-<!--  
-<script define:vars={{activeTextColor}}>
-  function createTabs(element) {
-  const header = element.querySelector('.tabs-header');
-  const content = element.querySelector('.tabs-content');
-  const tab_headers = [...header.children];
-  const tab_contents = [...content.children];
-  tab_contents.forEach((x) => (x.style.display = 'none'));
-  let current_tab_index = -1;
-
-  function setTab(index) {
-    if (current_tab_index > -1) {
-      tab_headers[current_tab_index].style.fontWeight = 400;
-      tab_headers[current_tab_index].style.color = '#4b5563';
-      tab_contents[current_tab_index].style.display = 'none';
-    }
-    tab_headers[index].style.fontWeight = 700;
-    tab_headers[index].style.color = activeTextColor;
-    tab_contents[index].style.display = 'flex';
-    current_tab_index = index;
-  }
-
-  let default_tab_index = tab_headers.findIndex((x) => {
-    return [...x.classList].indexOf('default-tab') > -1;
-  });
-
-  default_tab_index = default_tab_index === -1 ? 0 : default_tab_index;
-  setTab(default_tab_index);
-  tab_headers.forEach((x, i) => (x.onclick = (event) => setTab(i)));
-}
-
-// Run
-[...document.querySelectorAll('.tabs')].forEach((x) => createTabs(x));
-</script> -->

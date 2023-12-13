@@ -11,20 +11,22 @@ const featuresData = [
 ---
 
 
-<section>  
-  <div class="container py-16 sm:py-28">
-    <div class="max-w-2xl mb-8 lg:mb-16 mx-auto text-center">
-      <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
+<section class="bg-primary-500  bg-center bg-cover bg-no-repeat bg-[url('../assets/cta-bg.svg')]">  
+  <div class="container py-24 sm:py-28">
+    <div class="mb-16 lg:mb-20 max-w-prose">
+      <span class="inline-block text-sm lg:text-base font-semibold mb-2 text-[#C79360]">{heading.tagline}</span>
+      <h2 class="mb-4 text-3xl sm:text-4xl tracking-tight font-extrabold text-white">{heading.headingText}</h2>
+      <p class="sm:text-xl text-gray-100">{heading.descriptionText}</p>      
     </div>
     <div class="even-columns gap-12">
       {featuresData.map(feature => (
         <Card>
         <div>
-          <div class="flex justify-center items-center mx-auto mb-4 w-10 h-10 rounded-full bg-secondary-100 lg:h-12 lg:w-12">
-            <i class={`ph-fill ph-${feature.icon} text-xl sm:text-2xl text-secondary-600`}></i>   
+          <div class="flex justify-center items-center w-10 h-10 mb-5 rounded-full bg-white lg:h-12 lg:w-12">
+            <i class={`ph-fill ph-${feature.icon} text-xl sm:text-2xl text-[#C79360]`}></i>   
           </div>          
-          <h3 class="text-xl font-bold mb-2 text-gray-900">{feature.title}</h3>
-          <p>{feature.body}</p> 
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 ">{feature.title}</h3>
+          <p class="text-gray-100">{feature.body}</p> 
         </div>              
         </Card>
       ))}  
