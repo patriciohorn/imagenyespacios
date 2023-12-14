@@ -1,5 +1,5 @@
 ---
-import Carrousel from './Carrousel.astro'
+// import Carrousel from './Carrousel.astro'
 import ansi from '../assets/certificaciones/ansi.svg'
 import fmApproved from '../assets/certificaciones/fm-approved.svg'
 import greenBuilding from '../assets/certificaciones/green-building.svg'
@@ -8,6 +8,13 @@ import nfpa from '../assets/certificaciones/nfpa.svg'
 import shield from '../assets/certificaciones/shield.svg'
 import soundProof from '../assets/certificaciones/sound-proof.svg'
 import ul from '../assets/certificaciones/ul.svg'
+
+// Cards Images
+import metalicaEstandar from '../assets/productos/metalica-estandar.png'
+import emergencias from '../assets/productos/emergencias.png'
+import antivandalica from '../assets/productos/antivandalica.png'
+import contraFuego from '../assets/productos/contraFuego.png'
+import multiusos from '../assets/productos/multiusos.png'
 
 export interface Props {
   activeTextColor? : string; 
@@ -20,29 +27,43 @@ const tabTitle = ['Puertas Metálicas', 'Puertas Especiales', 'Puertas Madera', 
 
 const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR, perfecto para condiciones normales o secas', 'El relleno interior ofrece versatilidad total: elige entre poliestireno, honeycomb o lana mineral según tus necesidades', 'Nuestro acabado de fábrica es un recubrimiento de primario anticorrosivo gris, lista para personalizar con el color que prefiera. Además, puede solicitar nuestras puertas y marcos en una gama de colores RAL con pintura electrostática y horneado']
 
-const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta tres horas ', 'Acabado de Fábrica: Recubrimiento de primer anticorrosivo en color gris', 'Posibilidad de pintar la puerta en el color de elección del cliente después de la compra', 'Disponible la opción de solicitar puertas y marcos pre-pintados de fábrica', 'Opción de solicitar puertas y marcos pre-pintados de fábrica en colores específicos del código RAL mediante pintura electrostática y proceso de horneado']
+const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta tres horas ', 'En el acabado de fábrica se incluye un recubrimiento de primer anticorrosivo de color gris', 'Posibilidad de pintar la puerta en el color de elección del cliente después de la compra', 'Disponible la opción de solicitar puertas y marcos pre-pintados de fábrica', 'Opción de solicitar puertas y marcos pre-pintados de fábrica en colores específicos del código RAL mediante pintura electrostática y proceso de horneado']
+
+const metalicas = [
+  {title: 'Puerta Estándar', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar, alt: 'Puerta Estándar'},
+  {title: 'Salida de Emergencia', body: 'Esencial en edificios con alto tráfico peatonal, esta puerta de emergencia facilita la evacuación inmediata al presionar la barra antipánico, ya sea para rutas de evacuación o salidas directas al exterior en situaciones de emergencia', img: emergencias, alt: 'Salida de Emergencia'}, 
+  {title: 'Contra Fuego', body: 'Su función primordial es prevenir la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio. Puediendo contar con certificación cuando se cuenta con todos los elementos necesarios para mantenerse sellada y sin mirillas', img: antivandalica, alt: 'Contra Fuego'}, 
+  {title: 'Antivandálica Steel Stiffened', body: 'Fabricada en lámina galvanizada, incorpora refuerzos longitudinales interiores de calibre 18 y relleno de fibra de vidrio entre ellos. Ideal para áreas expuestas a exteriores y alto tráfico, proporciona una resistencia excepcional y mayor resistencia y protección ante ataques vandálicos', img: contraFuego, alt: 'Antivandálica Steel Stiffened'}, 
+  {title: 'Puerta Multiusos', body: 'Puerta y marco diseñados para uso moderado, sin requerimientos de certificación contra incendio. Ofrecemos una solución integral y económica que incluye marco, bisagras y cerradura', img: multiusos, alt: 'Puerta Multiusos'},       
+  ]
+
+const especiales = [
+  {title: 'Full Louver', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar, alt: 'Puerta Estándar'},
+  {title: 'Puerta Acústica', body: 'Esencial en edificios con alto tráfico peatonal, esta puerta de emergencia facilita la evacuación inmediata al presionar la barra antipánico, ya sea para rutas de evacuación o salidas directas al exterior en situaciones de emergencia', img: emergencias, alt: 'Salida de Emergencia'}, 
+  {title: 'Contra Huracán', body: 'Su función primordial es prevenir la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio. Puediendo contar con certificación cuando se cuenta con todos los elementos necesarios para mantenerse sellada y sin mirillas', img: antivandalica, alt: 'Contra Fuego'}, 
+  {title: 'Puerta Blindada', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar, alt: 'Puerta Estándar'}        
+  ]
 ---    
 
 
-<div class="border-b border-gray-200">
+<div class="mt-10 border-b border-gray-200">
   <ul class="tabs-header flex flex-wrap text-sm font-medium text-center -mb-px">
-    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:px-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300 active">Puertas Metálicas</li>
-    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Puertas Especiales</li>
-    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Puertas Madera</li>
-    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Marcos Metálicos</li>
-    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Carpintería</li>
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:px-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300 active">Metálicas</li>
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Especiales</li>
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Madera</li>
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Marcos</li>
+    <!-- <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Carpintería</li> -->
   </ul>
 </div>
 
-<!-- Tab Content -->
-<div class="tab-content active | mt-6">
-  <div class="even-columns | gap-12 md:gap-20">
-      <div class="px-6 pt-6">
-        <div class="mb-8">
+<div class="pt-10 sm:pt-16">
+  <div class="even-columns tab-content active | gap-12 md:20">    
+      <div class="space-y-8">
+        <div>
           <h3 class="text-2xl sm:text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas metálicas de acero</h3>
           <p class=" text-lg">Las puertas metálicas de acero son fabricadas con dos hojas de acero lisas y sin marcas de soldadura, con abatimiento universal que permite instalarse en aperturas izquierdas o derechas </p>
         </div> 
-        <div class="mb-8">
+        <div>
           <p class="font-bold mb-4 text-gray-900">Construcción:</p>
           <ul class="text-base">
             {doorSpecs.map(spec => (
@@ -52,9 +73,7 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
             </li>
             ))}              
           </ul>
-        </div>           
-        
-        <!-- Certificaciones -->
+        </div>      
         <ul class="flex flex-wrap items-center justify-between px-8">
           <li class="me-2"><img src={ansi.src} alt="logo certificación ansi" class="w-14 h-auto"></li>
           <li class="me-2"><img src={fmApproved.src} alt="logo certificación fm-approved" class="w-14 h-auto"></li>
@@ -64,54 +83,55 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
           <li class="me-2"><img src={shield.src} alt="logo seguridad" class="w-8 h-auto"></li>
           <li class="me-2"><img src={soundProof.src} alt="logo acústico" class="w-8 h-auto"></li>
           <li><img src={ul.src} alt="logo UL" class="w-8 h-auto"></li>
-        </ul>
-        
-        
+        </ul>        
       </div>
-      <div class="carrousel-fade | relative rounded-xl overflow-hidden flex items-center before:bg-gradient-to-r before:from-white before:to-[hsla(255, 255%, 255%, 9)] after:bg-gradient-to-l after:from-white after:to-[hsla(255, 255%, 255%, 9)]">                      
-        <Carrousel />     
-      </div>  
+      <div class="">      
+      </div>      
   </div>
-</div>        
- 
-<!-- Tab Content -->
-<div class="tab-content | mt-6">
-    <div class="even-columns | gap-12 md:gap-20">
-      <div class="px-6 pt-6">
-        <div class="mb-8">
-          <h3 class="text-2xl sm:text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas Especiales</h3>
-          <p class=" text-lg">Estas puertas de acero se fabrican con características especiales adaptadas a necesidades específicas, utilizando lámina de acero rolado en frío o acero galvanizado según la especificación</p>
-        </div> 
-        <div class="mb-8">          
-          <ul class="text-base">
-            {especialesSpecs.map(spec => (
-              <li class="flex items-start gap-2.5 max-w-prose mb-3">
-              <i class="ph-fill ph-check-circle text-lg text-primary-500"></i>
-              {spec}
-            </li>
-            ))}              
-          </ul>
-        </div>           
-        
-        <!-- Certificaciones -->
-        <ul class="flex flex-wrap items-center justify-between px-8">
-          <li class="me-2"><img src={ansi.src} alt="logo certificación ansi" class="w-14 h-auto"></li>
-          <li class="me-2"><img src={fmApproved.src} alt="logo certificación fm-approved" class="w-14 h-auto"></li>
-          <li class="me-2"><img src={greenBuilding.src} alt="logo certificación green-building" class="w-10 h-auto"></li>
-          <li class="me-2"><img src={naamm.src} alt="logo certificación NAAMM" class="w-14 h-auto"></li>
-          <li class="me-2"><img src={nfpa.src} alt="logo certificación NFPA" class="w-8 h-auto"></li>
-          <li class="me-2"><img src={shield.src} alt="logo seguridad" class="w-8 h-auto"></li>
-          <li class="me-2"><img src={soundProof.src} alt="logo acústico" class="w-8 h-auto"></li>
-          <li><img src={ul.src} alt="logo UL" class="w-8 h-auto"></li>
+
+  <div class="tab-content even-columns gap-12 md:20">
+    <div class="space-y-8">
+      <div>
+        <h3 class="text-2xl sm:text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas Especiales</h3>
+        <p class=" text-lg">Estas puertas de acero se fabrican con características especiales adaptadas a necesidades específicas, utilizando lámina de acero rolado en frío o acero galvanizado según la especificación</p>
+      </div> 
+      <div>          
+        <ul class="text-base">
+          {especialesSpecs.map(spec => (
+            <li class="flex items-start gap-2.5 max-w-prose mb-3">
+            <i class="ph-fill ph-check-circle text-lg text-primary-500"></i>
+            {spec}
+          </li>
+          ))}              
         </ul>
-        
-        
-      </div>
-      <div class="carrousel-fade | relative rounded-xl overflow-hidden flex items-center before:bg-gradient-to-r before:from-white before:to-[hsla(255, 255%, 255%, 9)] after:bg-gradient-to-l after:from-white after:to-[hsla(255, 255%, 255%, 9)]">                      
-        <Carrousel />     
-      </div>  
-    </div>          
+      </div>           
+      
+      
+      <ul class="flex flex-wrap items-center justify-between px-8">
+        <li class="me-2"><img src={ansi.src} alt="logo certificación ansi" class="w-14 h-auto"></li>
+        <li class="me-2"><img src={fmApproved.src} alt="logo certificación fm-approved" class="w-14 h-auto"></li>
+        <li class="me-2"><img src={greenBuilding.src} alt="logo certificación green-building" class="w-10 h-auto"></li>
+        <li class="me-2"><img src={naamm.src} alt="logo certificación NAAMM" class="w-14 h-auto"></li>
+        <li class="me-2"><img src={nfpa.src} alt="logo certificación NFPA" class="w-8 h-auto"></li>
+        <li class="me-2"><img src={shield.src} alt="logo seguridad" class="w-8 h-auto"></li>
+        <li class="me-2"><img src={soundProof.src} alt="logo acústico" class="w-8 h-auto"></li>
+        <li><img src={ul.src} alt="logo UL" class="w-8 h-auto"></li>
+      </ul>        
+    </div>
+    <div></div>
+  </div>
 </div>
+
+
+  
+<!-- 
+<div class="tab-content | mt-6">
+    <div class="even-columns | gap-12 md:gap-20"> -->
+      
+      <!-- <div class="carrousel-fade | relative rounded-xl overflow-hidden flex items-center before:bg-gradient-to-r before:from-white before:to-[hsla(255, 255%, 255%, 9)] after:bg-gradient-to-l after:from-white after:to-[hsla(255, 255%, 255%, 9)]">                      
+        <Carrousel cardsContent={especiales} swiperNum="swiper2" client:visible/>     
+      </div>   -->
+   
   
    
   
@@ -150,7 +170,7 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
       }
     
       .tab-content.active {
-        display: block; 
+        display: grid; 
       }
 </style>
 <script>

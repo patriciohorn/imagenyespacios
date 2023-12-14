@@ -2,30 +2,16 @@
 import { Image } from "astro:assets";
 import ProductCard from "./ProductCard.astro";
 
-
-// Cards Images
-import metalicaEstandar from '../assets/productos/metalica-estandar.png'
-import emergencias from '../assets/productos/emergencias.png'
-import antivandalica from '../assets/productos/antivandalica.png'
-import contraFuego from '../assets/productos/contraFuego.png'
-import multiusos from '../assets/productos/multiusos.png'
-
-const cardsContent = [
-  {title: 'Puerta Estándar', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar},
-  {title: 'Salida de Emergencia', body: 'Esencial en edificios con alto tráfico peatonal, esta puerta de emergencia facilita la evacuación inmediata al presionar la barra antipánico, ya sea para rutas de evacuación o salidas directas al exterior en situaciones de emergencia', img: emergencias}, 
-  {title: 'Contra Fuego', body: 'Su función primordial es prevenir la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio. Puediendo contar con certificación cuando se cuenta con todos los elementos necesarios para mantenerse sellada y sin mirillas', img: antivandalica}, 
-  {title: 'Antivandálica Steel Stiffened', body: 'Fabricada en lámina galvanizada, incorpora refuerzos longitudinales interiores de calibre 18 y relleno de fibra de vidrio entre ellos. Ideal para áreas expuestas a exteriores y alto tráfico, proporciona una resistencia excepcional y mayor resistencia y protección ante ataques vandálicos', img: contraFuego}, 
-  {title: 'Puerta Multiusos', body: 'Puerta y marco diseñados para uso moderado, sin requerimientos de certificación contra incendio. Ofrecemos una solución integral y económica que incluye marco, bisagras y cerradura', img: multiusos},     
-  ]
+const { cardsContent, swiperNum} = Astro.props
 ---
 
 
-<div class="swiper">
+<div class:list={`swiper ${swiperNum}`}>
   <div class="swiper-wrapper">      
         {
           cardsContent.map((card) => (
             <ProductCard title={card.title} body={card.body}>
-              <Image src={card.img} alt="puerta metálica estándar"/>             
+              <Image src={card.img} alt={card.alt}/>             
             </ProductCard>
           ))
          }                     

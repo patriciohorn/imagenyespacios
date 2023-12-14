@@ -1,32 +1,43 @@
 ---
+// import {Icon} from 'astro-icon'; 
 import Heading from "./Heading.astro";
 import Card from "./Card.astro";
-const heading = { tagline: 'Servicios', headingText: 'Tu proyecto en mano de expertos',descriptionText: 'Creamos una experiencia que te ayudará en cada iteracción del proceso para que puedas dormir tranquilo'}
 
-const featuresData = [
-  {icon: 'clipboard', title: 'Especificaciones', body: 'Desde la selección de materiales hasta las especificaciones de diseño, garantizamos una solución a la medida'},  
-  {icon: 'truck', title: 'Suministro', body: 'La entrega puntual y segura es nuestro compromiso. Garantizamos un transporte eficiente y sin problemas hasta sus instalaciones'},   
-  {icon: 'hammer', title: 'Instalación', body: 'Nuestros equipos de instaladores cuentan con una gran experiencia. Nos encargamos de todo el proceso con una atención al detalle'}, 
-  {icon: 'paint-bucket', title: 'Pintura', body: 'Solicite sus puertas y marcos en el color de su elección. Contamos con aplicación de pintura electrostática y proceso horneado'}]
+const heading = { tagline: 'Servicios', title: 'Tu proyecto en mano de expertos',description: 'Creamos una experiencia que te ayudará en cada iteracción del proceso para que puedas dormir tranquilo'}
+
+const features = [
+  {
+    icon: 'clipboard', 
+    title: 'Especificaciones', 
+    body: 'Desde la selección de materiales hasta las especificaciones de diseño, garantizamos una solución a la medida'},  
+  {
+    icon: 'truck', 
+    title: 'Suministro', 
+    body: 'La entrega puntual y segura es nuestro compromiso. Garantizamos un transporte eficiente y sin problemas hasta sus instalaciones'},   
+  {
+    icon: 'hammer', 
+    title: 'Instalación', 
+    body: 'Nuestros equipos de instaladores cuentan con una gran experiencia. Nos encargamos de todo el proceso con una atención al detalle'}, 
+  {
+    icon: 'paint-bucket', 
+    title: 'Pintura', 
+    body: 'Solicite sus puertas y marcos en el color de su elección. Contamos con aplicación de pintura electrostática y proceso horneado'}
+  ]
 ---
 
 
-<section class="bg-primary-500  bg-center bg-cover bg-no-repeat bg-[url('../assets/cta-bg.svg')]">  
-  <div class="container py-24 sm:py-28">
-    <div class="mb-16 lg:mb-20 max-w-prose">
-      <span class="inline-block text-sm lg:text-base font-semibold mb-2 text-[#C79360]">{heading.tagline}</span>
-      <h2 class="mb-4 text-3xl sm:text-4xl tracking-tight font-extrabold text-white">{heading.headingText}</h2>
-      <p class="sm:text-xl text-gray-100">{heading.descriptionText}</p>      
-    </div>
-    <div class="even-columns gap-12">
-      {featuresData.map(feature => (
+<section>  
+  <div class="py-24 sm:py-28">
+    <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="left" taglineColor="primary-500" titleColor="primary-900"/>    
+    <div class="mt-20 even-columns gap-12">
+      {features.map(feature => (
         <Card>
         <div>
-          <div class="flex justify-center items-center w-10 h-10 mb-5 rounded-full bg-white lg:h-12 lg:w-12">
-            <i class={`ph-fill ph-${feature.icon} text-xl sm:text-2xl text-[#C79360]`}></i>   
+          <div class="flex justify-center items-center w-10 h-10 mb-5 rounded-full bg-primary-50 lg:h-12 lg:w-12">
+            <i class={`ph-fill ph-${feature.icon} text-xl sm:text-2xl text-primary-500`}></i>   
           </div>          
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 ">{feature.title}</h3>
-          <p class="text-gray-100">{feature.body}</p> 
+          <h3 class="text-lg sm:text-xl font-bold text-primary-900 mb-2 ">{feature.title}</h3>
+          <p class="text-slate-600">{feature.body}</p> 
         </div>              
         </Card>
       ))}  

@@ -1,11 +1,6 @@
----
-import Heading from './Heading.astro'
 
-const heading = { tagline: 'Nosotros', headingText: 'Somos líderes en instalacion de puertas',descriptionText: 'Somos una empresa con más de 25 años de experiencia ubicada en Nuevo León. Comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto'}
----
-
-<section class="bg-[#F6F6F6] ">
-  <div class="container py-28">
+<section>
+  <div class="py-28">
     <div class="even-columns gap-10">
       <div>
         <picture class="grid">
@@ -15,8 +10,9 @@ const heading = { tagline: 'Nosotros', headingText: 'Somos líderes en instalaci
       
       <div>
         <div class="mb-8">          
-          <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText='Somos una empresa con más de 25 años de experiencia ubicada en Nuevo León. Comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto'/>
-          <!-- <p class="text-lg">Somos una empresa con más de 25 años de experiencia ubicada en Nuevo León. Comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto</p> -->
+          <span class=`inline-block text-sm lg:text-base font-semibold mb-2 text-primary-500`>Nosotros</span>
+          <h2 class=`text-3xl sm:text-4xl tracking-tight leading-tight font-extrabold text-primary-900 mb-4`>Somos líderes en instalacion de puertas</h2>
+          <p class="sm:text-xl font-light max-w-[34em]">Somos una empresa con más de 25 años de experiencia ubicada en Nuevo León. Comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto</p>
         </div>
         <hr class="text-gray-200">               
         <ul class="even-columns gap-6 mt-8">
