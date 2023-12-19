@@ -1,0 +1,16 @@
+---
+
+import CategoryCard from './CategoryCard.astro';
+
+
+
+const { cardData } = Astro.props
+---
+
+<ul class="col-span-4 grid grid-cols-2 gap-x-6 gap-y-6 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
+  {cardData.map((card) => (
+    <li>
+      <CategoryCard title={card.title} body={card.body} path={card.path.src} href={card.title} />
+    </li>
+  ))}
+</ul>

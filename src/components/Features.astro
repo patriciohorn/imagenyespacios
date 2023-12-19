@@ -28,16 +28,16 @@ const features = [
 
 <section>  
   <div class="py-24 sm:py-28">
-    <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="left" taglineColor="primary-500" titleColor="primary-900"/>    
+    <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="center" taglineColor="secondary-500" titleColor="slate-900"/>    
     <div class="mt-20 even-columns gap-12">
       {features.map(feature => (
         <Card>
-        <div>
-          <div class="flex justify-center items-center w-10 h-10 mb-5 rounded-full bg-primary-50 lg:h-12 lg:w-12">
+        <div class="text-center">
+          <div class="flex justify-center items-center w-10 h-10 mx-auto mb-5 rounded-full bg-primary-50 lg:h-12 lg:w-12">
             <i class={`ph-fill ph-${feature.icon} text-xl sm:text-2xl text-primary-500`}></i>   
           </div>          
           <h3 class="text-lg sm:text-xl font-bold text-primary-900 mb-2 ">{feature.title}</h3>
-          <p class="text-slate-600">{feature.body}</p> 
+          <p>{feature.body}</p> 
         </div>              
         </Card>
       ))}  

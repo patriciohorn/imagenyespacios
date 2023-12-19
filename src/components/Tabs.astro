@@ -1,4 +1,7 @@
 ---
+import Link from './Link.astro'
+import estandarImg from '../assets/estandar.png'
+import emergenciaImg from '../assets/productos/salidaEmergencia.png'
 // import Carrousel from './Carrousel.astro'
 import ansi from '../assets/certificaciones/ansi.svg'
 import fmApproved from '../assets/certificaciones/fm-approved.svg'
@@ -15,6 +18,7 @@ import emergencias from '../assets/productos/emergencias.png'
 import antivandalica from '../assets/productos/antivandalica.png'
 import contraFuego from '../assets/productos/contraFuego.png'
 import multiusos from '../assets/productos/multiusos.png'
+import Categories from './Categories.astro'
 
 export interface Props {
   activeTextColor? : string; 
@@ -25,24 +29,182 @@ const {headings, activeTextColor = '#1d4ed8'} = Astro.props as Props;
 
 const tabTitle = ['Puertas Metálicas', 'Puertas Especiales', 'Puertas Madera', 'Marcos Metálicos', 'Carpintería']
 
+
+const cardData =  {
+  metalicas: [
+        {
+        path: estandarImg, 
+        title: 'Puerta Estándar',
+        body: 'Puerta industrial versátil para construcción vertical, comercio y áreas de servicio, ideal para alto tráfico peatonal'  
+        },
+        {
+        path: emergenciaImg, 
+        title: 'Salida de Emergencia',
+        body: 'Permite salida inmediata para rutas de evacuación o salidas directas al exterior en situaciones críticas'  
+        },
+        {
+        path: estandarImg, 
+        title: 'Contra Fuego',
+        body: 'Preveniene la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio'  
+        }, 
+        {
+        path: estandarImg, 
+        title: 'Antivandálica Steel Stiffened',
+        body: 'Ideal para áreas expuestas a exteriores y alto tráfico, proporciona protección ante ataques vandálicos'  
+        }, 
+        {
+          path: estandarImg, 
+          title: 'Puerta Multiusos',
+          body: 'Puerta y marco diseñados para uso moderado. Ofrecemos una solución integral y económica que incluye marco, bisagras y cerradura'  
+        }
+      ],
+  especiales: [
+        {
+        path: estandarImg, 
+        title: 'Full Louver',
+        body: 'Puerta con rejilla completa para espacios que requieren ventilación adicional'  
+        },
+        {
+        path: estandarImg, 
+        title: 'Puerta Acústica',
+        body: 'Con relleno acústico y sellos perimetrales impide que el sonido se propague de una área a otra'  
+        },
+        {
+        path: estandarImg, 
+        title: 'Contra Huracán',
+        body: 'Diseñada por MMI y aprobada por UL. Recomendada para áreas donde las condiciones climáticas sean severas'  
+        },        
+        {
+          path: estandarImg, 
+          title: 'Puerta Blindada',
+          body: 'Puertas y marcos blindados diseñados para resistir impactos de balas. Equipado con herrajes de alta'  
+        }
+      ],
+  } 
+
 const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR, perfecto para condiciones normales o secas', 'El relleno interior ofrece versatilidad total: elige entre poliestireno, honeycomb o lana mineral según tus necesidades', 'Nuestro acabado de fábrica es un recubrimiento de primario anticorrosivo gris, lista para personalizar con el color que prefiera. Además, puede solicitar nuestras puertas y marcos en una gama de colores RAL con pintura electrostática y horneado']
+
+
+// const metalicas = [
+//   {title: 'Puerta Estándar', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar, alt: 'Puerta Estándar'},
+//   {title: 'Salida de Emergencia', body: 'Esencial en edificios con alto tráfico peatonal, esta puerta de emergencia facilita la evacuación inmediata al presionar la barra antipánico, ya sea para rutas de evacuación o salidas directas al exterior en situaciones de emergencia', img: emergencias, alt: 'Salida de Emergencia'}, 
+//   {title: 'Contra Fuego', body: 'Su función primordial es prevenir la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio. Puediendo contar con certificación cuando se cuenta con todos los elementos necesarios para mantenerse sellada y sin mirillas', img: antivandalica, alt: 'Contra Fuego'}, 
+//   {title: 'Antivandálica Steel Stiffened', body: 'Fabricada en lámina galvanizada, incorpora refuerzos longitudinales interiores de calibre 18 y relleno de fibra de vidrio entre ellos. Ideal para áreas expuestas a exteriores y alto tráfico, proporciona una resistencia excepcional y mayor resistencia y protección ante ataques vandálicos', img: contraFuego, alt: 'Antivandálica Steel Stiffened'}, 
+//   {title: 'Puerta Multiusos', body: 'Puerta y marco diseñados para uso moderado, sin requerimientos de certificación contra incendio. Ofrecemos una solución integral y económica que incluye marco, bisagras y cerradura', img: multiusos, alt: 'Puerta Multiusos'},       
+//   ]
+
+const specsMetalicas = [ 
+    {
+    title: 'Material de Lámina', 
+    description: 'Lamina calibre 18 de 1.0 mm', 
+    },
+    {
+    title: 'Fabricación', 
+    description: 'Acero rolado en frío CR para condiciones secas y galvanizado A60 para condiciones de intemperie o alta humedad', 
+    },
+    {
+    title: 'Relleno Interior', 
+    description: 'Poliestireno, honeycomb o lana mineral según el uso', 
+    },
+    {
+    title: 'Acabado de Fábrica', 
+    description: 'Recubrimiento de primer anticorrosivo gris para preparación de superficie antes de la pintura de su elección', 
+    },
+    {
+    title: 'Colores', 
+    description: 'Opción de personalizar con pintura RAL mediante proceso electrostático y horneado', 
+    },
+    {
+    title: 'Certificaciones y Seguridad', 
+    description: 'Certificaciones UL, WHI, FM contra incendios hasta tres horas', 
+    },
+]
+
+const specsEspeciales = [ 
+    {
+    title: 'Material de Lámina', 
+    description: 'Calibre de acuerdo a especificación', 
+    },
+    {
+    title: 'Fabricación', 
+    description: 'Lamina de acero rolado en frío o acero galvanizado', 
+    },
+    {
+    title: 'Opción Pre-Pintada', 
+    description: 'Disponible la opción de solicitar puertas y marcos pre-pintados de fábrica', 
+    },
+    {
+    title: 'Acabado de Fábrica', 
+    description: 'Recubrimiento de primer anticorrosivo gris para preparación de superficie antes de la pintura', 
+    },
+    {
+    title: 'Colores', 
+    description: 'Elección de colores específicos del código RAL para la pintura', 
+    },
+    {
+    title: 'Certificaciones y Seguridad', 
+    description: 'Certificaciones UL, WHI, FM contra incendios hasta tres horas', 
+    },
+]
+
+const specsMadera = [ 
+    {
+    title: 'Construcción', 
+    description: 'Solida, semisólida o de tambor', 
+    },
+    {
+    title: 'Origen', 
+    description: 'Fabricación nacional o internacional', 
+    },
+    {
+    title: 'Relleno Interior', 
+    description: 'Patricula Aglomerada, relleno estructural o roca mineral', 
+    },
+    {
+    title: 'Personalización de Dimensiones', 
+    description: 'No limitadas a dimensiones estándar y grosor de 1 ¾". Posibilidad de solicitar tamaños personalizados', 
+    },
+    
+    
+    {
+    title: 'Versatilidad de Uso', 
+    description: 'Fabricación para uso en exteriores, interiores o áreas especiales', 
+    },
+    {
+    title: 'Amplio Rango de Acabados', 
+    description: 'Chapas, laminado plástico, pintura sólida o barniz' 
+    },
+]
+
+const specsMarcos = [ 
+    {
+    title: 'Variedad de Calibres', 
+    description: 'Calibre 12, 18 y 22', 
+    },
+    {
+    title: 'Materiales Disponibles', 
+    description: 'Fabricados en acero rolado en frío o acero galvanizado A60', 
+    },
+    {
+    title: 'Refuerzos para Bisagra', 
+    description: 'Cuentan con refuerzos para bisagra de una sola pieza para mayor resistencia', 
+    },
+    {
+    title: 'Cejas de Ensamble', 
+    description: 'Diseñados con cejas de ensamble que proporcionan mayor rigidez', 
+    },
+    {
+    title: 'Preparaciones Incluidas', 
+    description: 'Incluyen preparaciones para fijación al muro y de contra chapa', 
+    },
+    {
+    title: 'Adaptabilidad a Aperturas', 
+    description: 'Pueden llevar preparaciones adicionales según las especificaciones de las aperturas', 
+    },   
+]
 
 const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta tres horas ', 'En el acabado de fábrica se incluye un recubrimiento de primer anticorrosivo de color gris', 'Posibilidad de pintar la puerta en el color de elección del cliente después de la compra', 'Disponible la opción de solicitar puertas y marcos pre-pintados de fábrica', 'Opción de solicitar puertas y marcos pre-pintados de fábrica en colores específicos del código RAL mediante pintura electrostática y proceso de horneado']
 
-const metalicas = [
-  {title: 'Puerta Estándar', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar, alt: 'Puerta Estándar'},
-  {title: 'Salida de Emergencia', body: 'Esencial en edificios con alto tráfico peatonal, esta puerta de emergencia facilita la evacuación inmediata al presionar la barra antipánico, ya sea para rutas de evacuación o salidas directas al exterior en situaciones de emergencia', img: emergencias, alt: 'Salida de Emergencia'}, 
-  {title: 'Contra Fuego', body: 'Su función primordial es prevenir la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio. Puediendo contar con certificación cuando se cuenta con todos los elementos necesarios para mantenerse sellada y sin mirillas', img: antivandalica, alt: 'Contra Fuego'}, 
-  {title: 'Antivandálica Steel Stiffened', body: 'Fabricada en lámina galvanizada, incorpora refuerzos longitudinales interiores de calibre 18 y relleno de fibra de vidrio entre ellos. Ideal para áreas expuestas a exteriores y alto tráfico, proporciona una resistencia excepcional y mayor resistencia y protección ante ataques vandálicos', img: contraFuego, alt: 'Antivandálica Steel Stiffened'}, 
-  {title: 'Puerta Multiusos', body: 'Puerta y marco diseñados para uso moderado, sin requerimientos de certificación contra incendio. Ofrecemos una solución integral y económica que incluye marco, bisagras y cerradura', img: multiusos, alt: 'Puerta Multiusos'},       
-  ]
-
-const especiales = [
-  {title: 'Full Louver', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar, alt: 'Puerta Estándar'},
-  {title: 'Puerta Acústica', body: 'Esencial en edificios con alto tráfico peatonal, esta puerta de emergencia facilita la evacuación inmediata al presionar la barra antipánico, ya sea para rutas de evacuación o salidas directas al exterior en situaciones de emergencia', img: emergencias, alt: 'Salida de Emergencia'}, 
-  {title: 'Contra Huracán', body: 'Su función primordial es prevenir la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio. Puediendo contar con certificación cuando se cuenta con todos los elementos necesarios para mantenerse sellada y sin mirillas', img: antivandalica, alt: 'Contra Fuego'}, 
-  {title: 'Puerta Blindada', body: 'Versátil puerta industrial para construcción vertical, comercio y áreas de servicio. Ideal para alto tráfico peatonal, compatible con diversos accesorios. Disponible en medidas estándar y especiales', img: metalicaEstandar, alt: 'Puerta Estándar'}        
-  ]
 ---    
 
 
@@ -56,136 +218,127 @@ const especiales = [
   </ul>
 </div>
 
-<div class="pt-10 sm:pt-16">
-  <div class="even-columns tab-content active | gap-12 md:20">    
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-2xl sm:text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas metálicas de acero</h3>
-          <p class=" text-lg">Las puertas metálicas de acero son fabricadas con dos hojas de acero lisas y sin marcas de soldadura, con abatimiento universal que permite instalarse en aperturas izquierdas o derechas </p>
-        </div> 
-        <div>
-          <p class="font-bold mb-4 text-gray-900">Construcción:</p>
-          <ul class="text-base">
-            {doorSpecs.map(spec => (
-              <li class="flex items-start gap-2.5 max-w-prose mb-3">
-              <i class="ph-fill ph-check-circle text-lg text-primary-500"></i>
-              {spec}
-            </li>
-            ))}              
-          </ul>
-        </div>      
-        <ul class="flex flex-wrap items-center justify-between px-8">
-          <li class="me-2"><img src={ansi.src} alt="logo certificación ansi" class="w-14 h-auto"></li>
-          <li class="me-2"><img src={fmApproved.src} alt="logo certificación fm-approved" class="w-14 h-auto"></li>
-          <li class="me-2"><img src={greenBuilding.src} alt="logo certificación green-building" class="w-10 h-auto"></li>
-          <li class="me-2"><img src={naamm.src} alt="logo certificación NAAMM" class="w-14 h-auto"></li>
-          <li class="me-2"><img src={nfpa.src} alt="logo certificación NFPA" class="w-8 h-auto"></li>
-          <li class="me-2"><img src={shield.src} alt="logo seguridad" class="w-8 h-auto"></li>
-          <li class="me-2"><img src={soundProof.src} alt="logo acústico" class="w-8 h-auto"></li>
-          <li><img src={ul.src} alt="logo UL" class="w-8 h-auto"></li>
-        </ul>        
+
+<div>
+  <!-- Puertas Estandares -->
+  <div class="tab-content active | grid grid-cols-1 gap-x-8 gap-y-10 py-10 lg:py-12 xl:grid-cols-6">
+    <div class="col-span-4 md:col-span-2">
+      <div>
+        <h3 class="mb-4 text-2xl font-semibold text-slate-900 leading-tight">Puertas metálicas de acero</h3>
+        <p class="mb-6 text-base">Puertas de acero lisas y sin marcas de soldaduras, abatibles para aperturas izquierdas o derechas. Ideales para almacenamiento o tráfico peatonal, tanto en interiores como exteriores</p>
+        <div class="flex gap-3">
+          <Link href="/productos" size="md">Cotizar Puertas</Link>
+          <Link href="/productos" style="outline" size="md">Especificaciones</Link>
+        </div>
       </div>
-      <div class="">      
-      </div>      
+    </div>      
+      <Categories cardData={cardData.metalicas}/>  
   </div>
 
-  <div class="tab-content even-columns gap-12 md:20">
-    <div class="space-y-8">
+  <!-- Puertas Especiales -->
+  <div class="tab-content | grid grid-cols-1 gap-x-8 gap-y-10 py-10 lg:py-12 xl:grid-cols-6">
+    <div class="col-span-4 md:col-span-2">
       <div>
-        <h3 class="text-2xl sm:text-3xl font-semibold  text-gray-900 leading-tight mb-4">Puertas Especiales</h3>
-        <p class=" text-lg">Estas puertas de acero se fabrican con características especiales adaptadas a necesidades específicas, utilizando lámina de acero rolado en frío o acero galvanizado según la especificación</p>
-      </div> 
-      <div>          
-        <ul class="text-base">
-          {especialesSpecs.map(spec => (
-            <li class="flex items-start gap-2.5 max-w-prose mb-3">
-            <i class="ph-fill ph-check-circle text-lg text-primary-500"></i>
-            {spec}
-          </li>
-          ))}              
-        </ul>
-      </div>           
-      
-      
-      <ul class="flex flex-wrap items-center justify-between px-8">
-        <li class="me-2"><img src={ansi.src} alt="logo certificación ansi" class="w-14 h-auto"></li>
-        <li class="me-2"><img src={fmApproved.src} alt="logo certificación fm-approved" class="w-14 h-auto"></li>
-        <li class="me-2"><img src={greenBuilding.src} alt="logo certificación green-building" class="w-10 h-auto"></li>
-        <li class="me-2"><img src={naamm.src} alt="logo certificación NAAMM" class="w-14 h-auto"></li>
-        <li class="me-2"><img src={nfpa.src} alt="logo certificación NFPA" class="w-8 h-auto"></li>
-        <li class="me-2"><img src={shield.src} alt="logo seguridad" class="w-8 h-auto"></li>
-        <li class="me-2"><img src={soundProof.src} alt="logo acústico" class="w-8 h-auto"></li>
-        <li><img src={ul.src} alt="logo UL" class="w-8 h-auto"></li>
-      </ul>        
+        <h3 class="mb-4 text-2xl font-semibold text-slate-900 leading-tight">Puertas Especiales</h3>
+        <p class="mb-6 text-base">Puertas de acero fabricadas con características especiales  pensadas para áreas con necesidades  específicas, utilizando lámina de acero rolado en frío o acero galvanizado según la especificación</p>
+        <div class="flex gap-3">
+          <Link href="/productos" size="md">Cotizar Puertas</Link>
+          <Link href="/productos" style="outline" size="md">Especificaciones</Link>
+        </div>
+      </div>
+    </div>      
+      <Categories cardData={cardData.especiales}/>  
+  </div> 
+
+  <!-- Puertas Madera -->
+  <div class="even-columns tab-content | py-10 lg:py-12">    
+    <div>
+      <div>
+        <h3 class="text-2xl font-semibold text-slate-900 leading-tight mb-4">Puertas de Madera</h3>
+        <p class="text-base max-w-prose">Nos enorgullecemos de ser distribuidores líderes de una amplia gama de puertas de madera. Nuestros productos están destinados a la industria de la construcción y se utilizan en proyectos industriales, comerciales y desarrollos habitacional vertical o mixto, cumpliendo con certificaciones y normas de calidad internacionales</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-8">
+        {specsMadera.map((spec => (
+          <div class="border-t border-gray-200 pt-4">
+          <h4 class="text-base font-medium text-primary-900">
+            {spec.title}
+          </h4>
+          <p class="mt-2 text-sm">
+            {spec.description}
+          </p>
+        </div>
+        )))}
+      </div>      
     </div>
-    <div></div>
+    <div class="">      
+    </div>      
   </div>
+
+  <!-- Marcos Metálicos -->
+  <div class="even-columns tab-content | gap-12 md:20">    
+    <div>
+      <div>
+        <h3 class="text-2xl font-semibold text-slate-900 leading-tight mb-4">Marcos Metálicos</h3>
+        <p class="text-base max-w-prose">Ofrecemos marcos metálicos de alta calidad diseñadas para satisfacer las diversas necesidades de la industria. Fabricados bajo los mismos estándares de calidad que nuestras puertas, y diseñados de acuerdo con su funcionamiento o el tipo de muro donde serán instalados</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-8">
+        {specsMarcos.map((spec => (
+          <div class="border-t border-gray-200 pt-4">
+          <h4 class="text-base font-medium text-primary-900">
+            {spec.title}
+          </h4>
+          <p class="mt-2 text-sm">
+            {spec.description}
+          </p>
+        </div>
+        )))}
+      </div>      
+    </div>
+    <div class="">      
+    </div>      
+  </div>
+  
 </div>
 
 
-  
-<!-- 
-<div class="tab-content | mt-6">
-    <div class="even-columns | gap-12 md:gap-20"> -->
-      
-      <!-- <div class="carrousel-fade | relative rounded-xl overflow-hidden flex items-center before:bg-gradient-to-r before:from-white before:to-[hsla(255, 255%, 255%, 9)] after:bg-gradient-to-l after:from-white after:to-[hsla(255, 255%, 255%, 9)]">                      
-        <Carrousel cardsContent={especiales} swiperNum="swiper2" client:visible/>     
-      </div>   -->
+<style>   
+     .tab-content {
+       display: none;
+       animation: moving .5s ease; 
+     }
+
+     @keyframes moving {
+       from{
+         transform: translateX(50px); 
+         opacity: 0; 
+       }
+
+       to {
+         transform: translateX(0); 
+         opacity: 1; 
+       }
+     }
    
-  
-   
-  
-
-
-<style>
-   .carrousel-fade:after, .carrousel-fade:before {
-        content: ""; 
-        position: absolute; 
-        top: 0; 
-        bottom: 0; 
-        width: 48px; 
-        pointer-events: none; 
-        z-index: 10; 
-      }
-    
-      .carrousel-fade:after {
-        right: 0; 
-      }
-    
-      .tab-content {
-        display: none;
-        animation: moving .5s ease; 
-      }
-
-      @keyframes moving {
-        from{
-          transform: translateX(50px); 
-          opacity: 0; 
-        }
-
-        to {
-          transform: translateX(0); 
-          opacity: 1; 
-        }
-      }
-    
-      .tab-content.active {
-        display: grid; 
-      }
+     .tab-content.active {
+       display: grid; 
+     }
 </style>
-<script>
- const tabs = document.querySelectorAll('.tab');
- const allContent = document.querySelectorAll('.tab-content')
- 
- tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(tab => tab.classList.remove('active'));
-    tab.classList.add('active');
-    
-    allContent.forEach(content => content.classList.remove('active'))
-    allContent[index].classList.add('active')
-  })
- })
-</script>
 
+
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const allContent = document.querySelectorAll('.tab-content')
+  
+  tabs.forEach((tab, index) => {
+   tab.addEventListener('click', () => {
+     tabs.forEach(tab => tab.classList.remove('active'));
+     tab.classList.add('active');
+     
+     allContent.forEach(content => content.classList.remove('active'))
+     allContent[index].classList.add('active')
+   })
+  })
+  </script>
+  
 

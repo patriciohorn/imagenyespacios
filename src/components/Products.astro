@@ -3,15 +3,14 @@
 import Heading from "./Heading.astro";
 import Tabs from "./Tabs.astro"
 
-const heading = { tagline: 'Puertas', title: 'Espacios seguros y funcionales', description: 'Descubre las soluciones de accesos que tenemos para las necesidades de tu proyecto'}
+const heading = { tagline: 'Puertas', title: 'Espacios seguros y funcionales', description: 'Descubre las soluciones de acceso que tenemos para las necesidades de tu proyecto'}
 ---
 
 <section>
   <div class="py-24 sm:py-28">
-    <!-- Section Heading -->
-    <div class="heading w-full mx-auto">    
-      <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="left" taglineColor="primary-500" titleColor="primary-900"/>       
-    </div>
+    <!-- Section Heading -->    
+    <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="center"  taglineColor="secondary-500" titleColor="slate-900"/>          
+   
 
     <section>     
         <Tabs headings={['Metálicas', 'Especiales', 'Madera', "Marcos Metálicos", "Carpintería"]} /> 

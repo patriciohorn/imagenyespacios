@@ -72,3 +72,58 @@ const { cardsContent, swiperNum} = Astro.props
 <script>
   import '../js/swiper.js'
 </script>
+<!-- 
+
+
+   
+<style>
+  .carrousel-fade:after, .carrousel-fade:before {
+       content: ""; 
+       position: absolute; 
+       top: 0; 
+       bottom: 0; 
+       width: 48px; 
+       pointer-events: none; 
+       z-index: 10; 
+     }
+   
+     .carrousel-fade:after {
+       right: 0; 
+     }
+   
+     .tab-content {
+       display: none;
+       animation: moving .5s ease; 
+     }
+
+     @keyframes moving {
+       from{
+         transform: translateX(50px); 
+         opacity: 0; 
+       }
+
+       to {
+         transform: translateX(0); 
+         opacity: 1; 
+       }
+     }
+   
+     .tab-content.active {
+       display: grid; 
+     }
+</style>
+<script>
+const tabs = document.querySelectorAll('.tab');
+const allContent = document.querySelectorAll('.tab-content')
+
+tabs.forEach((tab, index) => {
+ tab.addEventListener('click', () => {
+   tabs.forEach(tab => tab.classList.remove('active'));
+   tab.classList.add('active');
+   
+   allContent.forEach(content => content.classList.remove('active'))
+   allContent[index].classList.add('active')
+ })
+})
+</script> -->
+
