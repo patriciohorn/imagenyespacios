@@ -1,19 +1,20 @@
 ---
-
+import Link from "./Link.astro";
 import ButtonOutline from "./ButtonOutline.astro";
 const heading = { tagline: 'Contactanos', headingText: 'Comencemos tu proyecto ahora',descriptionText: 'Envíanos un mensaje para comenzar a cotizar tu proyecto'}
 ---
 
 
-<section class="bg-primary-500 bg-cover bg-center bg-no-repeat bg-[url('../assets/cta-bg.svg')]">
-  <div class="container mx-auto py-16 md:py-28">
-    <div class="mx-auto md:max-w-4xl text-center">
-      <div class="mb-8">        
-        <h2 class="mb-4 text-3xl sm:text-4xl md:text-5xl tracking-tight font-extrabold text-white">{heading.headingText}</h2>
-        <p class="text-lg sm:text-xl text-gray-100 font-light max-w-[34em] mx-auto">{heading.descriptionText}</p>   
-      </div>
-      <ButtonOutline text="Solicita Cotización" href="/contacto" class="white"/> 
-    </div>   
+<section class="section-padding">
+  <div class="container">    
+    <div class="relative isolate overflow-hidden bg-primary-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+      <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">               
+        <h2 class="text-3xl sm:text-4xl tracking-tight font-bold text-white">{heading.headingText}</h2>
+        <p class="mt-6 text-lg text-gray-200 leading-8">{heading.descriptionText}</p>        
+        <Link size="lg" style="inverted" href="/contacto" class="mt-10">Solicita tu cotización</Link>
+      </div>   
+    </div> 
+    
   </div>    
 </section>
 

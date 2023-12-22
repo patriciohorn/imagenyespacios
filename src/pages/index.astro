@@ -9,17 +9,19 @@ import Products from '../components/Products.astro'
 import Projects from '../components/Projects.astro'
 import Gallery from '../components/Gallery.astro'
 import CTA from '../components/CTA.astro'
+import ProductFeature from "../components/ProductFeature.astro"
+import Masonry from "../components/Masonry.astro"
 ---
 
-<Layout>
-	<Container>
+<Layout>	
 		<Hero />	
 		<Features />	
 		<About />	
 		<LogoCloud /> 
-		<Products /> 
+		<Products />
+		<ProductFeature/>
+		<Masonry/>
 		<Projects />
-		<Gallery />
-		<CTA />
-	</Container>
+		
+		<CTA />	
 </Layout>

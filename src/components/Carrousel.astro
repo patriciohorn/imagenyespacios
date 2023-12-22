@@ -1,45 +1,32 @@
----
-import { Image } from "astro:assets";
-import ProductCard from "./ProductCard.astro";
-
-const { cardsContent, swiperNum} = Astro.props
----
-
-
-<div class:list={`swiper ${swiperNum}`}>
+<div class="swiper">
   <div class="swiper-wrapper">      
-        {
-          cardsContent.map((card) => (
-            <ProductCard title={card.title} body={card.body}>
-              <Image src={card.img} alt={card.alt}/>             
-            </ProductCard>
-          ))
-         }                     
-  </div>
-    
-  <!-- If we need navigation buttons -->    
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+  <slot/>                
+  </div>    
+  
+  <div class="swiper-button-prev shadow-md"></div>      
+  <div class="swiper-button-next shadow-md"></div>  
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>  
 </div>
 
-
 <style>
-  .swiper{
-    padding-block: 80px; 
-  }
- 
+ .swiper{
+    width: 100%; 
+    height: 100%;
+    padding-inline: 20px           
+}  
+
+
   
 :is(.swiper-button-next, .swiper-button-prev){
-  --swiper-navigation-top-offset: 47%; 
-  --swiper-navigation-sides-offset: 8%;
+  --swiper-navigation-top-offset: 38%; 
+  --swiper-navigation-sides-offset: 0%;
   display: flex; 
   align-items: center; 
   justify-content: center;  
   border: none; 
-  background: rgb(12, 59, 143, 0.6); 
-  color: rgba(255,255,255,0.8); 
+  background: hsl(255, 255%, 180%, 0.8); 
+  color: hsl(0, 70%, 51%, 0.9); 
   border-radius: 50%; 
   height: 40px;
   width: 40px; 
@@ -48,8 +35,8 @@ const { cardsContent, swiperNum} = Astro.props
 }
 
 :is(.swiper-button-next, .swiper-button-prev):hover{
-  background: hsl(219, 84%, 24%, 0.8); 
-  color: rgba(255,255,255);     
+  background: hsl(255, 255%, 180%,0.9); 
+  color: #DA2C2B;     
   transition: background;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)  
@@ -60,58 +47,27 @@ const { cardsContent, swiperNum} = Astro.props
   font-weight: 700; 
 }
 
+
 .swiper-pagination {
-    --swiper-theme-color: rgb(12, 59, 143);
-    --swiper-pagination-bullet-inactive-color: rgb(109, 137, 188); 
-    --swiper-pagination-bottom: 48px;        
+    --swiper-theme-color: hsl(255, 255%, 180%);    --swiper-pagination-bullet-inactive-color: hsl(255, 255%, 180%); 
+    --swiper-pagination-bottom: 116px;        
   }
 
+  .swiper-pagination-bullet{
+    height: 12px; 
+    width: 12px; 
+  }
 </style>
-
-
+  
 <script>
   import '../js/swiper.js'
 </script>
-<!-- 
 
 
-   
-<style>
-  .carrousel-fade:after, .carrousel-fade:before {
-       content: ""; 
-       position: absolute; 
-       top: 0; 
-       bottom: 0; 
-       width: 48px; 
-       pointer-events: none; 
-       z-index: 10; 
-     }
-   
-     .carrousel-fade:after {
-       right: 0; 
-     }
-   
-     .tab-content {
-       display: none;
-       animation: moving .5s ease; 
-     }
 
-     @keyframes moving {
-       from{
-         transform: translateX(50px); 
-         opacity: 0; 
-       }
 
-       to {
-         transform: translateX(0); 
-         opacity: 1; 
-       }
-     }
-   
-     .tab-content.active {
-       display: grid; 
-     }
-</style>
+<!--  
+
 <script>
 const tabs = document.querySelectorAll('.tab');
 const allContent = document.querySelectorAll('.tab-content')

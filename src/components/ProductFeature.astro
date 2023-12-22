@@ -1,0 +1,31 @@
+---
+
+import carpintery from "../assets/carpintery-bg.png"
+import Link from './Link.astro'
+const listItems = ['Muros y Lambrines', 'Puertas y Marcos', 'Plafones', 'Cocinetas', 'Muebles de diseño']
+---
+
+<section class="relative"> 
+    <div class="pr-16 relative pb-[66%] lg:pb-0 lg:absolute lg:h-full lg:w-1/2 overflow-hidden">
+      <img class="object-cover object-center absolute inset-0 w-full h-full lg:static lg:rounded-r-2xl" src={carpintery.src} alt="Servicios de carpintería">
+    </div>   
+    <div class="lg:grid lg:grid-cols-2 gap-20 pt-16 pb-24 lg:py-32 container">
+     <div class=""></div>   
+      <div>
+        <h2 class="mb-2 text-sm lg:text-base font-medium  text-secondary-500">Carpintería</h2>
+        <p class="text-3xl md:text-4xl tracking-tight leading-tight font-bold text-gray-900 mb-4">Nuestra experiencia en carpintería, su espacio único</p>
+        <p class="text-lg text-light">Nuestro cualificado equipo está especializado en una gran variedad de servicios de carpintería de primera categoría</p>   
+        <ul class="mt-8 grid grid-cols-2 gap-x-2 gap-y-2 max-w-md">
+          {listItems.map(item => (
+            <li class="text-sm md:text-base flex md:items-center gap-2.5 max-w-prose text-primary-500 font-medium">
+            <i class="ph-fill ph-check-circle text-lg text-primary-600"></i>
+            {item}
+            </li>
+          ))}
+        </ul>
+        <div class="mt-8">
+          <Link href="/contacto">Cotiza Ahora</Link>
+        </div>        
+      </div>    
+    </div>    
+</section>

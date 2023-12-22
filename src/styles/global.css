@@ -10,7 +10,7 @@
 
 @layer components {
   .container {
-    @apply max-w-screen-xl mx-auto px-5;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .even-columns {
@@ -33,5 +33,9 @@
 
   .tab.active {
     @apply text-primary-500 border-primary-500 hover:border-primary-500;
+  }
+
+  .section-padding {
+    @apply py-16 lg:py-24;
   }
 }

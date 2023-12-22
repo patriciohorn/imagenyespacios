@@ -26,23 +26,26 @@ const features = [
 ---
 
 
-<section>  
-  <div class="py-24 sm:py-28">
-    <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="center" taglineColor="secondary-500" titleColor="slate-900"/>    
-    <div class="mt-20 even-columns gap-12">
-      {features.map(feature => (
-        <Card>
-        <div class="text-center">
-          <div class="flex justify-center items-center w-10 h-10 mx-auto mb-5 rounded-full bg-primary-50 lg:h-12 lg:w-12">
-            <i class={`ph-fill ph-${feature.icon} text-xl sm:text-2xl text-primary-500`}></i>   
-          </div>          
-          <h3 class="text-lg sm:text-xl font-bold text-primary-900 mb-2 ">{feature.title}</h3>
-          <p>{feature.body}</p> 
-        </div>              
-        </Card>
-      ))}  
-    </div>   
-   
+<section class="section-padding">  
+  <div class="container">
+    <div class="grid grid-cols-1 gap-x-0 gap-y-8 sm:gap-x-20 lg:grid-cols-3">      
+      <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="left" taglineColor="secondary-500" titleColor="gray-900"/>    
+      <div class="col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-8">
+        {features.map(feature => (
+          <Card>
+          <div class="">
+            <div class="mb-6 flex justify-center items-center w-10 h-10 md:w-10 md:h-10 rounded-lg bg-primary-500 border border-gray-200">
+              <i class={`ph ph-${feature.icon} text-xl text-white`}></i>   
+            </div>          
+            <h3 class="text-base font-semibold text-gray-900">{feature.title}</h3>
+            <p class="mt-2 text-base">{feature.body}</p> 
+          </div>              
+          </Card>
+        ))}  
+      </div>      
+
+    </div>
+    
   </div>
 </section>
 

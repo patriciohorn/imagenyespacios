@@ -11,8 +11,8 @@ interface Props {
 const {align = "center",   tagline, title, description, titleColor, taglineColor } = Astro.props;
 ---
 
-<div class:list={["mb-10 lg:mb-20 flex flex-col justify-center items-center", align === "center" && "text-center"]}>
-  <span class=`inline-block text-sm lg:text-base font-semibold mb-4 text-${taglineColor}`>{tagline}</span>
-  <h2 class=`text-4xl sm:text-5xl tracking-tight leading-tight font-extrabold text-${titleColor} mb-6 max-w-2xl`>{title}</h2>
-  <p class="text-lg font-light max-w-[28em]">{description}</p>        
+<div class:list={["mb-16 md:mb-20 max-w-2xl mx-auto", align === "center" && "text-center"]}>
+  <h2 class=`text-sm lg:text-base font-medium mb-2 text-${taglineColor}`>{tagline}</h2>
+  <p class=`text-3xl md:text-4xl tracking-tight leading-tight font-bold text-${titleColor} mb-4 max-w-2xl`>{title}</p>
+  <p class="text-lg max-w-[28em] mx-auto">{description}</p>        
 </div>

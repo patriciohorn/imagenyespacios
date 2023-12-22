@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets'
+import landscape1 from '../assets/gallery/carpinteria/landscape-1.png'
+import landscape2 from '../assets/gallery/carpinteria/landscape-2.png'
+import landscape3 from '../assets/gallery/carpinteria/landscape-3.png'
+import landscape4 from '../assets/gallery/carpinteria/landscape-4.png'
+import landscape5 from '../assets/gallery/carpinteria/landscape-5.png'
+import landscape6 from '../assets/gallery/carpinteria/landscape-6.png'
+import landscape7 from '../assets/gallery/carpinteria/landscape-7.png'
+import landscape8 from '../assets/gallery/carpinteria/landscape-8.png'
+import portrait1 from '../assets/gallery/carpinteria/portrait-1.png'
+import portrait2 from '../assets/gallery/carpinteria/portrait-2.png'
+import portrait3 from '../assets/gallery/carpinteria/portrait-3.png'
+import portrait4 from '../assets/gallery/carpinteria/portrait-4.png'
+import portrait5 from '../assets/gallery/carpinteria/portrait-5.png'
+import portrait6 from '../assets/gallery/carpinteria/portrait-6.png'
+
+
+---
+
+<section class="section-padding">  
+    <div class="grid grid-cols-2 lg:grid-cols-6 items-center gap-4">
+      <div class="grid gap-4">     
+          <picture class=" overflow-hidden rounded-lg aspect-[1/1]">
+            <Image src={landscape1} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+          </picture>
+          <picture class="overflow-hidden rounded-lg">
+            <Image src={portrait6} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+          </picture>            
+      </div> 
+         
+      <div class="grid gap-4">
+        <picture class="overflow-hidden rounded-lg">
+          <Image src={portrait1} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>     
+        <picture class="overflow-hidden rounded-lg aspect-[1/1]">
+          <Image src={landscape2} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>      
+      </div>
+     
+      <div class="grid gap-4">     
+        <picture class="overflow-hidden rounded-lg aspect-[1/1]">
+          <Image src={landscape3} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>
+        <picture class="overflow-hidden rounded-lg">
+          <Image src={portrait3} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>            
+      </div>
+      <div class="grid gap-4">
+        <picture class="overflow-hidden rounded-lg">
+          <Image src={portrait4} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>     
+        <picture class="overflow-hidden rounded-lg aspect-[1/1]">
+          <Image src={landscape5} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>      
+      </div>
+      <div class="hidden lg:grid gap-4">            
+        <picture class="overflow-hidden rounded-lg aspect-[1/1]">
+          <Image src={landscape6} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>
+        <picture class="overflow-hidden rounded-lg">
+          <Image src={portrait5} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>       
+      </div>
+      <div class="hidden lg:grid gap-4">
+        <picture class="overflow-hidden rounded-lg">
+          <Image src={portrait2} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>     
+        <picture class="overflow-hidden rounded-lg aspect-[1/1]">
+          <Image src={landscape7} alt="foto de trabajo de carpintería" class="object-cover w-full h-full" />
+        </picture>      
+      </div>
+
+      
+      
+      
+         
+             
+    </div> 
+  </div>    
+</section>

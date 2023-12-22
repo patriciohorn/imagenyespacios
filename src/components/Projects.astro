@@ -1,55 +1,118 @@
 ---
-import { Image } from "astro:assets"; 
+import { Image } from "astro:assets";
+import Carrousel from "./Carrousel.astro"; 
 import brembo from '../assets/brembo.png'
 import sungwoo from '../assets/sungwoo.png'
 import lego from '../assets/lego.png'
-// import whirlpool from '../assets/whirlpool.png'
-
+import whirlpool from '../assets/whirlpool.png'
+import imss from '../assets/imss.png'
+import ronal from '../assets/ronal-sanluis.png'
+import magna from '../assets/magna-sanluis.png'
+import barcel from '../assets/barcel.png'
+import caterpillar from '../assets/caterpillar.png'
 
 import Heading from "./Heading.astro";
 import BlogCard from "./BlogCard.astro";
 import Button from './Button.astro'
 
-const heading = { tagline: 'Proyectos', headingText: 'Conoce Nuestros Casos de Éxito',descriptionText: 'Descubre algunos de nuestros proyectos más recientes y destacados'}
+
+const heading = { tagline: 'Proyectos', title: 'Conoce Nuestros Casos de Éxito', description: 'Descubre algunos de nuestros proyectos más recientes y destacados'}
 
 const projectsData = [
   { 
     img: brembo,
     altText: 'Planta de empresa Brembo',  
-    title: 'Brembo', 
-    description: 'Planta Escobedo Nuevo León'
+    title: 'Planta Brembo Mizar', 
+    description: 'Escobedo, N.L.'
   }, 
   { 
     img: sungwoo,
-    altText: 'Planta de empresa Sungwoo', 
-    title: 'Sungwoo', 
-    description: 'Planta Pesquería Nuevo León'
+    altText: 'Planta Sungwoo Hitech', 
+    title: 'Planta Sungwoo Hitech', 
+    description: 'Pesquería, N.L.'
   }, 
   { 
     img: lego,
-    altText: 'Planta de empresa Lego', 
-    title: 'Lego', 
-    description: 'Planta Ciénega de Flores Nuevo León'
-  }  
+    altText: 'Lego Operaciones de México', 
+    title: 'Lego Operaciones de México', 
+    description: 'Ciénega de Flores, N.L.'
+  },
+  { 
+    img: barcel,
+    altText: 'Planta Barcel Escobedo Nuevo León', 
+    title: 'Planta Bimbo Barcel', 
+    description: 'Escobedo, N.L.'
+  },
+  { 
+    img: whirlpool,
+    altText: 'Planta Whirlpool', 
+    title: 'Planta Whirlpool', 
+    description: 'Apodaca, N.L.'
+  },
+  { 
+    img: imss,
+    altText: 'Hospital General de Zona IMSS Reynosa', 
+    title: 'IMSS Hospital General de Zona', 
+    description: 'Reynosa, Tamps.'
+  },
+  { 
+    img: ronal,
+    altText: 'Ronal planta San Luis', 
+    title: 'Planta Ronal', 
+    description: 'San Luis Potosí, S.L.P.'
+  },
+  { 
+    img: magna,
+    altText: 'Magna planta San Luis', 
+    title: 'Planta Magna', 
+    description: 'San Luis Potosí, S.L.P.'
+  },
+  { 
+    img: caterpillar,
+    altText: 'Planta Caterpillar', 
+    title: 'Planta Caterpillar', 
+    description: 'Ciénega de Flores, N.L.'
+  },
+
   ];
 ---
 
-<section id="proyectos">
-  <div class="container py-16 sm:py-28 -mb-4">
-    <div class="max-w-2xl mb-8 lg:mb-16 mx-auto text-center">
-      <Heading tagline={heading.tagline} headingText={heading.headingText} descriptionText={heading.descriptionText} />
-    </div> 
-    <div class="even-columns gap-8 mb-12">
-      {
-      projectsData.map((project) => (
-        <BlogCard title={project.title} description={project.description}>         
-           <Image src={project.img} alt={project.altText} />
-                 
-        </BlogCard>
-      ))}  
+<section id="proyectos" class="section-padding">
+  <div class="container">   
+    <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="center" taglineColor="secondary-500" titleColor="gray-900"/>
+         
+    <div class="flex gap-x-8">          
+        <Carrousel>         
+          {
+          projectsData.map((project) => (
+            <BlogCard title={project.title} description={project.description} class="swiper-slide">
+              <Image src={project.img} alt={project.altText} class="w-full h-auto object-cover aspect-[3/2] rounded-lg shadow-sm" />                   
+            </BlogCard>
+          ))}
+          </Carrousel>    
+      </div>     
     </div>
     <div class="text-center">
-      <Button text="Más Proyectos" href="/proyectos" />
+      
     </div>    
   </div>
 </section>
+
+
+<style>
+.carrousel-fade:after, .carrousel-fade:before {
+  content: ""; 
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  width: 28px; 
+  pointer-events: none; 
+  z-index: 10; 
+}
+   
+.carrousel-fade:after {
+  right: 0; 
+} 
+</style>
+
+ 
