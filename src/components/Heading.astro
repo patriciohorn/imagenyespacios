@@ -12,7 +12,7 @@ const {align = "center",   tagline, title, description, titleColor, taglineColor
 ---
 
 <div class:list={["mb-16 md:mb-20 max-w-2xl mx-auto", align === "center" && "text-center"]}>
-  <h2 class=`text-sm lg:text-base font-medium mb-2 text-${taglineColor}`>{tagline}</h2>
-  <p class=`text-3xl md:text-4xl tracking-tight leading-tight font-bold text-${titleColor} mb-4 max-w-2xl`>{title}</p>
-  <p class="text-lg max-w-[28em] mx-auto">{description}</p>        
+  <h2 class=`text-sm lg:text-base font-medium text-${taglineColor}`>{tagline}</h2>
+  <p class=`mt-2 text-3xl md:text-4xl tracking-tight leading-tight font-bold text-${titleColor} max-w-2xl`>{title}</p>
+  <p class="mt-4 text-lg max-w-[28em] mx-auto">{description}</p>        
 </div>

@@ -1,7 +1,21 @@
 ---
+import { Image } from 'astro:assets'
 import Link from './Link.astro'
-import estandarImg from '../assets/estandar.png'
-import emergenciaImg from '../assets/productos/salidaEmergencia.png'
+import estandarImg from '../assets/productos/estandar.png'
+import puertaEmergencia from '../assets/productos/salidaEmergencia.png'
+import puertaContraFuego from '../assets/productos/contra-fuego.png'
+import antivandalica from '../assets/productos/antivandalica.png'
+import multiUsos from '../assets/productos/multiusos.png'
+import fullLouvre from '../assets/productos/full-louvre.png'
+import acustica from '../assets/productos/acustica.png'
+import huracan from '../assets/productos/contra-huracan.png'
+import blindada from '../assets/productos/blindada.png'
+import puertaMadera from '../assets/puerta-madera.png'
+import relleno1 from '../assets/productos/card-relleno1.png'
+import relleno2 from '../assets/productos/card-relleno2.png'
+import relleno3 from '../assets/productos/card-relleno3.png'
+
+
 // import Carrousel from './Carrousel.astro'
 
 
@@ -14,12 +28,9 @@ import shield from '../assets/certificaciones/shield.svg'
 import soundProof from '../assets/certificaciones/sound-proof.svg'
 import ul from '../assets/certificaciones/ul.svg'
 
-// Cards Images
-import metalicaEstandar from '../assets/productos/metalica-estandar.png'
-import emergencias from '../assets/productos/emergencias.png'
-import antivandalica from '../assets/productos/antivandalica.png'
-import contraFuego from '../assets/productos/contraFuego.png'
-import multiusos from '../assets/productos/multiusos.png'
+
+
+
 import Categories from './Categories.astro'
 
 export interface Props {
@@ -40,44 +51,44 @@ const cardData =  {
         body: 'Puerta industrial versátil para construcción vertical, comercio y áreas de servicio, ideal para alto tráfico peatonal'  
         },
         {
-        path: emergenciaImg, 
+        path: puertaEmergencia, 
         title: 'Salida de Emergencia',
         body: 'Permite salida inmediata para rutas de evacuación o salidas directas al exterior en situaciones críticas'  
         },
         {
-        path: estandarImg, 
+        path: puertaContraFuego, 
         title: 'Contra Fuego',
         body: 'Preveniene la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio'  
         }, 
         {
-        path: estandarImg, 
+        path: antivandalica, 
         title: 'Antivandálica Steel Stiffened',
         body: 'Ideal para áreas expuestas a exteriores y alto tráfico, proporciona protección ante ataques vandálicos'  
         }, 
         {
-          path: estandarImg, 
+          path: multiUsos, 
           title: 'Puerta Multiusos',
           body: 'Puerta y marco diseñados para uso moderado. Ofrecemos una solución integral y económica que incluye marco, bisagras y cerradura'  
         }
       ],
   especiales: [
         {
-        path: estandarImg, 
+        path: fullLouvre, 
         title: 'Full Louver',
         body: 'Puerta con rejilla completa para espacios que requieren ventilación adicional'  
         },
         {
-        path: estandarImg, 
+        path: acustica, 
         title: 'Puerta Acústica',
         body: 'Con relleno acústico y sellos perimetrales impide que el sonido se propague de una área a otra'  
         },
         {
-        path: estandarImg, 
+        path: huracan, 
         title: 'Contra Huracán',
         body: 'Diseñada por MMI y aprobada por UL. Recomendada para áreas donde las condiciones climáticas sean severas'  
         },        
         {
-          path: estandarImg, 
+          path: blindada, 
           title: 'Puerta Blindada',
           body: 'Puertas y marcos blindados diseñados para resistir impactos de balas. Equipado con herrajes de alta'  
         }
@@ -170,7 +181,7 @@ const specsMadera = [
     
     {
     title: 'Versatilidad de Uso', 
-    description: 'Fabricación para uso en exteriores, interiores o áreas especiales', 
+    description: 'Fabricación para uso en exteriores, interiores o áreas especiales (contraincendios o acústicas)', 
     },
     {
     title: 'Amplio Rango de Acabados', 
@@ -223,10 +234,10 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
 
 <div>
   <!-- Puertas Estandares -->
-  <div class="tab-content active | grid grid-cols-1 gap-x-8 gap-y-10 py-10 lg:py-12 xl:grid-cols-6">
+  <div class="tab-content active | grid grid-cols-1 gap-x-8 gap-y-10 pt-10 lg:pt-12 xl:grid-cols-6">
     <div class="col-span-4 md:col-span-2">
       <div>
-        <h3 class="mb-4 text-2xl font-semibold text-slate-900 leading-tight">Puertas metálicas de acero</h3>
+        <h3 class="mb-4 text-2xl font-semibold text-gray-950 leading-tight">Puertas Metálicas de Acero</h3>
         <p class="mb-6 text-base">Puertas de acero lisas y sin marcas de soldaduras, abatibles para aperturas izquierdas o derechas. Ideales para almacenamiento o tráfico peatonal, tanto en interiores como exteriores</p>
         <div class="flex gap-3">
           <Link href="/productos" size="md">Cotizar Puertas</Link>
@@ -238,10 +249,10 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
   </div>
 
   <!-- Puertas Especiales -->
-  <div class="tab-content | grid grid-cols-1 gap-x-8 gap-y-10 py-10 lg:py-12 xl:grid-cols-6">
+  <div class="tab-content | grid grid-cols-1 gap-x-8 gap-y-10 pt-10 lg:pt-12 xl:grid-cols-6">
     <div class="col-span-4 md:col-span-2">
       <div>
-        <h3 class="mb-4 text-3xl font-semibold text-slate-900 leading-tight">Puertas Especiales</h3>
+        <h3 class="mb-4 text-2xl font-semibold text-gray-950 leading-tight">Puertas Especiales</h3>
         <p class="mb-6 text-base">Puertas de acero fabricadas con características especiales  pensadas para áreas con necesidades  específicas, utilizando lámina de acero rolado en frío o acero galvanizado según la especificación</p>
         <div class="flex gap-3">
           <Link href="/productos" size="md">Cotizar Puertas</Link>
@@ -253,16 +264,16 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
   </div> 
 
   <!-- Puertas Madera -->
-  <div class="even-columns tab-content | py-10 lg:py-12">    
+  <div class="even-columns gap-20 tab-content | pt-10 lg:pt-12">    
     <div>
       <div>
-        <h3 class="text-2xl font-semibold text-slate-900 leading-tight mb-4">Puertas de Madera</h3>
+        <h3 class="text-2xl font-semibold text-gray-950 leading-tight mb-4">Puertas de Madera</h3>
         <p class="text-base max-w-prose">Nos enorgullecemos de ser distribuidores líderes de una amplia gama de puertas de madera. Nuestros productos están destinados a la industria de la construcción y se utilizan en proyectos industriales, comerciales y desarrollos habitacional vertical o mixto, cumpliendo con certificaciones y normas de calidad internacionales</p>
       </div>
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-8">
         {specsMadera.map((spec => (
           <div class="border-t border-gray-200 pt-4">
-          <h4 class="text-base font-medium text-primary-900">
+          <h4 class="text-base font-medium text-gray-950">
             {spec.title}
           </h4>
           <p class="mt-2 text-sm">
@@ -272,21 +283,30 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
         )))}
       </div>      
     </div>
-    <div class="">      
-    </div>      
+    <div class="flex gap-4">
+      <div class="max-w-sm ml-auto">
+        <Image class="w-full h-auto md:h-full rounded-lg" src={puertaMadera} alt="Puerta de madera" />     
+      </div>
+      <div class="flex flex-col justify-between">
+        <Image class="w-full h-auto rounded-lg" src={relleno1} alt="Puerta de madera" />
+        <Image class="w-full h-auto rounded-lg" src={relleno2} alt="Puerta de madera" />
+        <Image class="w-full h-auto rounded-lg" src={relleno3} alt="Puerta de madera" />
+      </div> 
+    </div>
+         
   </div>
 
   <!-- Marcos Metálicos -->
-  <div class="even-columns tab-content | py-10 lg:py-12">    
+  <div class="even-columns tab-content | pt-10 lg:pt-12">    
     <div>
       <div>
-        <h3 class="text-2xl font-semibold text-slate-900 leading-tight mb-4">Marcos Metálicos</h3>
+        <h3 class="text-2xl font-semibold text-gray-950 leading-tight mb-4">Marcos Metálicos</h3>
         <p class="text-base max-w-prose">Ofrecemos marcos metálicos de alta calidad diseñadas para satisfacer las diversas necesidades de la industria. Fabricados bajo los mismos estándares de calidad que nuestras puertas, y diseñados de acuerdo con su funcionamiento o el tipo de muro donde serán instalados</p>
       </div>
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-8">
         {specsMarcos.map((spec => (
           <div class="border-t border-gray-200 pt-4">
-          <h4 class="text-base font-medium text-primary-900">
+          <h4 class="text-base font-medium text-gray-950">
             {spec.title}
           </h4>
           <p class="mt-2 text-sm">

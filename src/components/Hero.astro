@@ -1,22 +1,47 @@
 ---
-
+import heroImg from '../assets/hero.png'
+import carpintery from '../assets/gallery/carpinteria/portrait-1.png'
 import Link from '../components/Link.astro'
 
 import '../styles/global.css'
 ---
 
-<section class="container pb-16 pt-20 lg:pb-28 lg:pt-28">
-  <div class="grid lg:grid-cols-2 place-items-center">
+<section class="relative isolate pt-16 pb-24 bg-gray-25">
+  <div class="pattern-grid-xl absolute inset-0 w-full h-full text-gray-100/50 -z-10"></div>
+  <div class="container">
+    <div class="even-columns items-center">
       <div>
-        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-primary-900">Marketing website done with Astro</h1>
-        <p class="text-lg mt-4 text-slate-600 max-w-xl">Somos expertos en la creación de proyectos y soluciones de acceso que garantizan la seguridad de las personas</p>
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <h1 class="text-4xl sm:text-6xl sm:leading-[1.1] font-bold lg:tracking-tight xl:tracking-tighter text-gray-950">Creamos espacios <span class="text-primary-500">seguros y funcionales</span></h1>
+        <p class="text-xl mt-6 max-w-xl">Ofrecemos soluciones de puertas y acceso con entrega puntual e instalación experta para cada proyecto</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <Link href="#productos">Ver Productos</Link>
+          <Link href="#cta" style="outline">Cotiza Ahora</Link>
+        </div>      
+      </div>
+      <div class="relative max-w-xl ml-auto z-0">
+        <div class="text-primary-500 pattern-dots-md h-40 w-32 absolute -top-4 -left-8 -z-[1]"></div>
+        <div class="text-primary-500 pattern-dots-md h-40 w-32 absolute -bottom-4 -right-8 -z-[1]"></div>
+        <img class="w-full h-auto rounded-lg shadow-lg" src={heroImg.src} alt="Puertas estandares">     
+    </div>
+  </div>
+</section>
+
+<!-- 
+<section class="relative">  
+  <div class="container">
+    <div class="grid lg:grid-cols-12 lg:gap-8">
+      <div class="pb-16 pt-20 z-10 lg:col-span-6 lg:pt-48 lg:pb-56">
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-semibold lg:tracking-tight xl:tracking-tighter text-primary-900">Creamos accesos y espacios seguros</h1>
+        <p class="text-xl mt-6 text-slate-600 max-w-xl">Somos expertos en la creación de proyectos y soluciones de acceso que garantizan la seguridad de las personas</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
           <Link href="#productos">Ver Productos</Link>
           <Link href="#cta" style="outline">Cotiza Ahora</Link>
         </div>      
       </div>    
-      <div class="py-6 md:order-1 hidden md:block">
-      <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
+      <div class="relative lg:ml-4 lg:col-span-5 lg:absolute lg:inset-0 lg:left-1/2 lg:mr-0 overflow-hidden">
+        <img class="object-cover w-full lg:absolute lg:inset-0 lg:aspect-auto lg:h-full" src={heroImg.src} alt="">  
       </div>                
   </div>
-</section>
+  </div>  
+ 
+</section> -->

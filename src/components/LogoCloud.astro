@@ -1,21 +1,22 @@
 ---
-
+import Heading from "./Heading.astro";
 const images = await Astro.glob('../assets/logos/*').then(files => {
     return files.map(file => file.default)
 })
-const heading = { headingText: "Used by the world's most average companies"}
+const heading = { tagline: 'Socios de Confianza', title: 'Colaboramos con las mejores marcas',}
 
 ---
-<section>
-  <div class="container py-16 sm:py-28">
-    <div class="mx-auto text-center mb-12">     
-      <h3 class="scroll-m-20 text-2xl md:text-3xl tracking-tight font-bold leading-[1.2] text-gray-900">{heading.headingText}</h3>    
+<section class="section-padding relative isolate">
+  <div class="pattern-dots-xl absolute top-0 right-0 w-1/4 h-full text-gray-100 -z-10"></div>    
+  <div class="container">
+    <div class="mx-auto text-center">     
+      <Heading tagline={heading.tagline} title={heading.title}  align="center" taglineColor="secondary-500" titleColor="gray-950"/>    
     </div>: 
-    <div class="grid items-center justify-center max-w-4xl grid-cols-3 md:grid-cols-5 mx-auto gap-6 sm:gap-10">             
+    <div class="grid items-center justify-center max-w-4xl grid-cols-3 md:grid-cols-5 mx-auto gap-6 sm:gap-10 mb-12">             
         {images.map(image => (
               <div class="">
                 <img
-                  class="object-contain w-full h-14"
+                  class="object-contain w-full h-12"
                   src={image.src}
                   alt={image.alt}
                   loading="lazy"

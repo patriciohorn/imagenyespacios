@@ -1,27 +1,23 @@
 ---
 import Link from "./Link.astro";
-import ButtonOutline from "./ButtonOutline.astro";
-const heading = { tagline: 'Contactanos', headingText: 'Comencemos tu proyecto ahora',descriptionText: 'Envíanos un mensaje para comenzar a cotizar tu proyecto'}
+import ctaImg from "../assets/cta.png"
+
+const heading = { tagline: 'Contactanos', headingText: '¿Listo para Transformar tus Espacios?', descriptionText: 'Da el primer paso para comenzar tu proyecto y ponte en contacto con nosotros para obtener mas información'}
 ---
 
+<section class="section-padding relative overflow-hidden bg-gray-950">
+  <div class="absolute inset-0">
+      <img class="object-cover w-full h-full md:object-left md:origin-top-left" src={ctaImg.src} alt="" />
+  </div>
+  <div class="absolute inset-0 hidden bg-gradient-to-r md:block from-gray-950 to-transparent"></div>
+  <div class="absolute inset-0 block bg-gray-950/60 md:hidden"></div>
 
-<section class="section-padding">
-  <div class="container">    
-    <div class="relative isolate overflow-hidden bg-primary-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-      <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">               
-        <h2 class="text-3xl sm:text-4xl tracking-tight font-bold text-white">{heading.headingText}</h2>
-        <p class="mt-6 text-lg text-gray-200 leading-8">{heading.descriptionText}</p>        
-        <Link size="lg" style="inverted" href="/contacto" class="mt-10">Solicita tu cotización</Link>
-      </div>   
-    </div> 
-    
-  </div>    
+  <div class="relative container">
+      <div class="text-center md:w-2/3 lg:w-1/2 xl:w-1/3 md:text-left">
+          <h3 class="text-3xl font-bold leading-tight text-gray-25 sm:text-4xl lg:text-5xl lg:leading-[1.1]">{heading.headingText}</h3>
+          <p class="mt-4 text-lg text-gray-200">{heading.descriptionText}</p>
+          <Link href="/contacto" class="mt-6">Inicia tu Proyecto</Link>      
+      </div>
+  </div>
 </section>
-
-
-<style>
-  .white {
-    background: white; 
-  }
-</style>
 
