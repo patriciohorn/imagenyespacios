@@ -77,8 +77,7 @@ const projectsData = [
   ];
 ---
 
-<section id="proyectos" class="section-padding bg-gray-50 relative isolate">
-  <div class="pattern-grid-xl absolute inset-0 w-full h-full text-gray-100/80 -z-10"></div>  
+<section id="proyectos" class="section-padding bg-gray-50 relative isolate">   
   <div class="container">   
     <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="center" taglineColor="secondary-500" titleColor="gray-900"/>         
     <div class="flex gap-x-8">          
@@ -86,7 +85,7 @@ const projectsData = [
           {
           projectsData.map((project) => (
             <BlogCard title={project.title} description={project.description} class="swiper-slide">
-              <Image src={project.img} alt={project.altText} class="w-full h-auto object-cover aspect-[3/2] rounded-lg shadow-sm" />                   
+              <Image src={project.img} alt={project.altText} class="w-full h-auto object-cover aspect-[3/2] rounded-lg shadow-sm bg-gray-100 ring-1 ring-gray-900/10" />                   
             </BlogCard>
           ))}
           </Carrousel>    

@@ -1,0 +1,182 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import specBg from "../../assets/cta.png"
+import CTA from "../../components/CTA.astro";
+import relleno1 from '../../assets/productos/madera/relleno1.png'
+import relleno2 from '../../assets/productos/madera/relleno2.png'
+import relleno3 from '../../assets/productos/madera/relleno3.png'
+import CategoryCard from "../../components/CategoryCard.astro";
+import CoverBanner from "../../components/CoverBanner.astro";
+
+import marcoUnBatiente from '../../assets/productos/marco_un_batiente-sm.png'
+import marcoBatienteDesigual from '../../assets/productos/marco-batiente_desigual.png'
+import marcoBatienteIgual from '../../assets/productos/marco-batiente_igual.png'
+import marcoCabezalLiso from '../../assets/productos/marco-cabezal_liso.png'
+import refuerzo1 from '../../assets/productos/refuerzo1.png'
+import refuerzo2 from '../../assets/productos/refuerzo2.png'
+import refuerzo3 from '../../assets/productos/refuerzo3.png'
+import refuerzo4 from '../../assets/productos/refuerzo4.png'
+import marcoAbrazar from '../../assets/productos/marco-abrazar.png'
+import abrazarIsometric from '../../assets/productos/marco-abrazarIsometric.png'
+import sobreponerIsometric from '../../assets/productos/marco-sobreponerIsometric.png'
+
+
+const specs = [ 
+    {
+    title: 'Variedad de Calibres', 
+    description: 'Calibre 12, 18 y 22', 
+    },
+    {
+    title: 'Materiales Disponibles', 
+    description: 'Fabricados en acero rolado en frío o acero galvanizado A60', 
+    },
+    {
+    title: 'Refuerzos para Bisagra', 
+    description: 'Cuentan con refuerzos para bisagra de una sola pieza para mayor resistencia', 
+    },
+    {
+    title: 'Cejas de Ensamble', 
+    description: 'Diseñados con cejas de ensamble que proporcionan mayor rigidez', 
+    },
+    {
+    title: 'Preparaciones Incluidas', 
+    description: 'Incluyen preparaciones para fijación al muro y de contra chapa', 
+    },
+    {
+    title: 'Adaptabilidad a Aperturas', 
+    description: 'Pueden llevar preparaciones adicionales según las especificaciones de las aperturas', 
+    },   
+]
+
+const cardData = {
+  batientesMarco: [
+        {
+        path: marcoUnBatiente, 
+        title: 'Un Batiente',        
+        },
+        {
+        path: marcoBatienteDesigual, 
+        title: 'Batiente Desigual',
+        
+        },
+        {
+        path: marcoBatienteIgual, 
+        title: 'Batiente Igual',
+        
+        },
+        {
+        path: marcoCabezalLiso, 
+        title: 'Cabezal Liso',        
+        },
+        {
+        path: sobreponerIsometric, 
+        // title: 'Para Muro de Mampostería',        
+        },          
+       
+      ],
+  refuerzo: [
+        {
+        path: refuerzo1,               
+        },
+        {
+        path: refuerzo2,       
+        },
+        {
+        path: refuerzo3,        
+        },
+        {
+        path: refuerzo4,            
+        },       
+       
+      ],
+  abrazar: [
+        {
+        path: marcoAbrazar, 
+        title: 'Batiente Igual',        
+        },
+        {
+        path: abrazarIsometric, 
+        // title: 'Para Muro de Panel de Yeso (Tablaroca)',        
+        },       
+      ],
+}
+
+
+
+
+
+const heading = { tagline: 'Especificaciones', title: 'Marcos Metálicos',description: 'Ofrecemos marcos metálicos de alta calidad diseñadas para satisfacer las diversas necesidades de la industria. Fabricados bajo los mismos estándares de calidad que nuestras puertas, y diseñados de acuerdo con su funcionamiento o el tipo de muro donde serán instalados'}
+---
+
+<Layout>
+<CoverBanner/>
+  <section class="pb-16 bg-gray-25">
+      <div class="relative container -mt-24 pb-24">   
+        <div class="max-w-2xl text-center mx-auto lg:max-w-4xl">
+          <h2 class="text-sm lg:text-base font-medium text-secondary-500">Especificaciones</h2>
+          <p class="mt-2 text-3xl font-bold leading-tight text-gray-950 lg:text-4xl lg:leading-[1.1]">{heading.title}</p>
+          <p class="mt-4 text-base text-gray-700">{heading.description}</p>                          
+        </div>
+        <div class="mt-16 grid grid-cols-1 xl:grid-cols-6 gap-x-8 gap-y-10 pt-10 lg:pt-16">                  
+          <div class="col-span-2">
+            <h3 class="text-base font-semibold text-gray-950">Batiente de Marco de Sobreponer</h3>
+            <p class="text-sm mt-1">Para Muro de Mampostería</p>          
+          </div>      
+          <div class="col-span-4">                    
+              <ul class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-5 xl:gap-x-6">
+                {cardData.batientesMarco.map((card) => (
+                  <li>
+                    <CategoryCard title={card.title} path={card.path.src} href={card.title} />
+                  </li>
+                ))}
+              </ul>
+          </div>  
+            
+          <div class="col-span-2">
+                <h3 class="text-base font-semibold text-gray-950 ">Refuerzos en Marco de Sobreponer</h3>
+          </div>
+          <div class="col-span-4">
+            <ul class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-5 xl:gap-x-6">
+              {cardData.refuerzo.map((card) => (
+                <li>
+                  <CategoryCard path={card.path.src} href="refuerzo en marco de sobreponer" />
+                </li>
+              ))}
+            </ul>
+          </div>    
+          
+          
+          <div class="col-span-2">
+              <h3 class="text-base font-semibold text-gray-950">Batiente de Marco de Abrazar</h3>
+              <p class="mt-1 text-sm">Para Muro de Panel de Yeso (Tablaroca)</p>
+          </div>
+          <div class="col-span-4">
+            <ul class="mt-4 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-5 xl:gap-x-6">
+              {cardData.abrazar.map((card) => (
+                <li>
+                  <CategoryCard path={card.path.src} title={card.title} href="refuerzo en marco de sobreponer" />
+                </li>
+              ))}
+            </ul>     
+          </div>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-y-10 lg:gap-x-20">
+          {specs.map((spec => (
+            <div class="border-t border-gray-200 pt-4">
+            <h4 class="text-base font-medium text-gray-950">
+              {spec.title}
+            </h4>
+            <p class="mt-2 text-sm">
+              {spec.description}
+            </p>
+          </div>
+          )))}        
+        </div> 
+
+        
+
+                   
+      </div>                  
+  </section> 
+  <CTA/>
+</Layout>

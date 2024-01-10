@@ -6,21 +6,20 @@ import Link from '../components/Link.astro'
 import '../styles/global.css'
 ---
 
-<section class="relative isolate pt-16 pb-24 bg-gray-25">
-  <div class="pattern-grid-xl absolute inset-0 w-full h-full text-gray-100/50 -z-10"></div>
+<section class="bg-gray-900 pb-24 lg:pb-32 pt-14">     
   <div class="container">
-    <div class="even-columns items-center">
+    <div class="even-columns items-center gap-y-20 gap-x-20">
       <div>
-        <h1 class="text-4xl sm:text-6xl sm:leading-[1.1] font-bold lg:tracking-tight xl:tracking-tighter text-gray-950">Creamos espacios <span class="text-primary-500">seguros y funcionales</span></h1>
-        <p class="text-xl mt-6 max-w-xl">Ofrecemos soluciones de puertas y acceso con entrega puntual e instalación experta para cada proyecto</p>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl sm:leading-[1.1] font-bold lg:tracking-tight xl:tracking-tighter lg:leading-[1.1] text-white">Creamos espacios seguros y funcionales</h1>
+        <p class="text-xl mt-6 max-w-xl text-gray-400">Ofrecemos soluciones de puertas y acceso con entrega puntual e instalación experta para cada proyecto</p>
         <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <Link href="#productos">Ver Productos</Link>
-          <Link href="#cta" style="outline">Cotiza Ahora</Link>
+          <Link href="/#contacto">Comienza tu Proyecto</Link>
+          <Link href="#productos" style="outline">Nuestros Soluciones</Link>
         </div>      
       </div>
       <div class="relative max-w-xl ml-auto z-0">
-        <div class="text-primary-500 pattern-dots-md h-40 w-32 absolute -top-4 -left-8 -z-[1]"></div>
-        <div class="text-primary-500 pattern-dots-md h-40 w-32 absolute -bottom-4 -right-8 -z-[1]"></div>
+        <div class="text-gray-500 pattern-dots-md h-40 w-40 absolute -top-6 -left-6 -z-[1] "></div>
+        <div class="text-gray-500 pattern-dots-md h-40 w-40 absolute -bottom-6 -right-6 -z-[1] "></div>
         <img class="w-full h-auto rounded-lg shadow-lg" src={heroImg.src} alt="Puertas estandares">     
     </div>
   </div>
@@ -45,3 +44,4 @@ import '../styles/global.css'
   </div>  
  
 </section> -->
+

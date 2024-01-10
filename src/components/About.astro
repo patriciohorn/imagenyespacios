@@ -4,19 +4,18 @@ import aboutImg from '../assets/about.png'
 import aboutImgSmall from '../assets/aboutSmall.png'
 ---
 
-<section class="section-padding bg-gray-950 relative isolate">
-  <div class="pattern-dots-xl absolute top-0 right-0 w-1/4 h-full text-gray-900 -z-10"></div>  
+<section id="nosotros" class="section-padding bg-gray-50 relative isolate">  
   <div class="container">
-    <div class="even-columns gap-12 items-center">
+    <div class="even-columns gap-20 items-center">
       <div class="md:order-1">        
           <div class="relative mr-10 isolate">        
-            <Image src={aboutImg} alt="Puerta peatonal" class="object-cover w-full h-full rounded-lg bg-white/5 ring-1 ring-white/10"/>
-            <div class="absolute -bottom-12 -right-12 shadow-lg">
-              <Image src={aboutImgSmall} alt="Puerta peatonal" class="rounded-lg max-w-full h-full shadow-2xl bg-gray-600/30 ring-1 ring-gray-600/10"/>
+            <Image src={aboutImg} alt="Puerta peatonal" class="object-cover w-full h-full rounded-lg bg-gray-100 ring-1 ring-gray-900/10 shadow-sm"/>
+            <div class="absolute -bottom-12 -right-12 shadow-lg rounded-lg overflow-hidden">
+              <Image src={aboutImgSmall} alt="Puerta peatonal" class="object-cover max-w-[12rem] md:max-w-full h-full shadow-2xl bg-gray-100 ring-1 ring-gray-900/10"/>
             </div>            
-            <div class="pattern-dots-md text-primary-200 w-32 h-40 absolute -bottom-4 -left-8 -z-10"></div>
-            <div class="absolute top-8 -left-12 rounded-lg ">
-              <div class="backdrop-blur rounded-2xl p-6 shadow-2xl bg-primary-600/30 ring-1 ring-primary-600/10">
+            <div class="pattern-dots-md text-primary-500 w-32 h-40 absolute -bottom-4 -left-8 -z-10"></div>
+            <div class="absolute -top-12 sm:top-8 -left-2 sm:-left-12 rounded-lg shadow-2xl ">
+              <div class="backdrop-blur rounded-lg p-4 md:p-6 bg-primary-600/30 ring-1 ring-primary-900/10">
                 <div class="flex flex-col items-center justify-center rounded-lg">      
                   <span class="block text-xl font-bold text-gray-25 sm:text-4xl lg:text-5xl">+25</span>
                   <span class="block mt-2 text-sm font-medium  text-primary-200 sm:text-base">Años de Experiencia</span>
@@ -29,19 +28,19 @@ import aboutImgSmall from '../assets/aboutSmall.png'
       <div class="md:order-2">
         <div class="mb-8">
           <h2 class="text-sm lg:text-base font-medium text-secondary-500">Quiénes Somos</h2>
-          <p class="mt-2 text-3xl md:text-4xl tracking-tight md:leading-[1.2] font-bold text-gray-25">Experiencia que inspira confianza</p>
-          <p class="mt-4 text-lg text-gray-300">Somos una empresa comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto</p>           
+          <p class="mt-2 text-3xl md:text-4xl lg:text-5xl lg:leading-[1.1] lg:tracking-tight font-bold text-gray-950">Experiencia que Inspira Confianza</p>
+          <p class="mt-4 text-lg ">Somos una empresa comprometida en ofrecer asesoramiento profesional y oportuno en cada proyecto</p>           
           
         </div>
-        <hr class="border-gray-700">               
+        <hr class="border-gray-200">               
         <ul class="flex flex-col lg:flex-row mt-8 gap-8">
           <li>
-            <h6 class="text-xl font-bold text-gray-25">Misión</h6>
-            <p class="mt-4 text-gray-300">Alcanzar el reconocimiento de nuestros clientes por la calidad en nuestros productos y servicios de instalación de puertas en las ramas industrial, comercial, residencial y hotelera</p>
+            <h6 class="text-xl font-bold text-gray-950">Misión</h6>
+            <p class="mt-4 ">Alcanzar el reconocimiento de nuestros clientes por la calidad en nuestros productos y servicios de instalación de puertas en las ramas industrial, comercial, residencial y hotelera</p>
           </li>
           <li>
-            <h6 class="text-xl font-bold text-gray-25">Visión</h6>
-            <p class="mt-4 text-gray-300">Ser una empresa de calidad a nivel nacional, dedicada al suministro en instalación de puertas metálicas y de madera en la industria y construcción</p>
+            <h6 class="text-xl font-bold text-gray-950">Visión</h6>
+            <p class="mt-4 ">Ser una empresa de calidad a nivel nacional, dedicada al suministro en instalación de puertas metálicas y de madera en la industria y construcción</p>
           </li>
         </ul>
       </div>     

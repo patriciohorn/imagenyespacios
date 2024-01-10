@@ -6,27 +6,27 @@ import techoMadera from "../assets/gallery/carpinteria/portrait-1.png"
 import Link from './Link.astro'
 const listItems = ['Muros y Lambrines', 'Puertas y Marcos', 'Plafones', 'Cocinetas', 'Muebles de diseño']
 ---
-<section class="section-padding relative bg-gray-950 isolate">
-  <div class="pattern-dots-xl absolute top-0 right-0 w-1/4 h-full text-gray-900 -z-10"></div>   
+<section  class="section-padding relative bg-gray-900 isolate">
+  <div class="pattern-dots-xl absolute top-0 right-0 w-1/5 h-full text-gray-800 -z-10"></div>   
   <div class="pr-16 relative pb-[66%] lg:pb-0 lg:absolute lg:h-full lg:w-1/2 overflow-hidden lg:inset-0">
     <img class="object-cover object-center absolute inset-0 w-full h-full lg:static" src={carpintery.src} alt="Servicios de carpintería">
   </div>   
-  <div class="container even-columns lg:gap-20">
+  <div class="container even-columns gap-20">
    <div class=""></div>   
     <div>
-      <h2 class="mb-2 text-sm lg:text-base font-medium  text-secondary-500">Carpintería</h2>
-      <p class="text-3xl md:text-4xl tracking-tight leading-tight font-bold text-gray-25 mb-4">Nuestra experiencia en carpintería, su espacio único</p>
-      <p class="text-lg text-gray-300">Nuestro cualificado equipo está especializado en una gran variedad de servicios de carpintería de primera categoría</p>   
+      <h2 class="mb-2 text-sm lg:text-base font-medium  text-secondary-300">Carpintería</h2>
+      <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 lg:leading-[1.1]">Tu Espacio Único. Hecho a la Medida</p>
+      <p class="text-lg text-gray-400">Nuestro equipo está especializado en una gran variedad de servicios de carpintería de primera categoría</p>   
       <ul class="mt-8 grid grid-cols-2 gap-x-2 gap-y-2 max-w-md">
         {listItems.map(item => (
-          <li class="text-sm md:text-base flex items-center gap-2.5 text-gray-300 ">
-          <i class="ph-fill ph-caret-circle-right text-lg text-primary-300"></i>
+          <li class="text-sm md:text-base flex items-center gap-2.5 text-gray-400 ">
+          <i class="ph-fill ph-caret-circle-right text-lg text-primary-400"></i>
           {item}
           </li>
         ))}
       </ul>
-      <div class="mt-8">
-        <Link href="/contacto">Cotiza Ahora</Link>
+      <div class="mt-10">
+        <Link href="/#contacto">Inicia tu Proyecto de Carpintería</Link>
       </div>        
     </div>    
   </div>    

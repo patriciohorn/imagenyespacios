@@ -1,55 +1,194 @@
 ---
 import Link from './Link.astro';
-import logo from '../assets/logo-blue.svg'
-import { Astronav, MenuItems, MenuIcon } from "astro-navbar"
+import logo from '../assets/logo-white.svg'
+import { Astronav, MenuItems, MenuIcon} from "astro-navbar";
+
 
 const menuItems = [
     {
         title: "Nosotros", 
-        path: "#nosotros"
+        path: "/#nosotros"
     }, 
     {
         title: "Servicios", 
-        path: "#servicios"
+        path: "/#servicios"
     }, 
     {
         title: "Productos", 
-        path: "#productos"
+        path: "/#productos"
     },
     {
         title: "Proyectos", 
-        path: "#proyectos"
+        path: "/#proyectos"
     }
 ]
-
 ---
 
-<header class="h-20 flex items-center bg-gray-25"> 
-    <div class="container | flex flex-col justify-between items-center lg:flex-row ">
-        <Astronav>
-            <div class="flex w-full lg:w-auto items-center justify-between">
-                <a href="" class="flex items-center">
-                <img src={logo.src} class="h-16" alt="Logo Imagen y Espacios" />              
-              </a>
-              <div class="block lg:hidden">
-                <MenuIcon class="w-6 h-6 text-primary-500" />
-              </div>
-            </div>          
-            <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-            <ul class="flex flex-col lg:flex-row lg:gap-3 text-sm">
-               {
-                menuItems.map((item) => (
-                        <li>
-                            <a href={item.path} class="flex lg:px-3 py-2 items-center text-gray-500 transform-acolors duration-200 ease-in-out hover:text-primary-500">{item.title}</a>
-                        </li>
-                    ))
-               }
-            </ul>
-            </MenuItems>          
-        </Astronav>
-        <div class="hidden lg:flex items-center gap-4">              
-            <Link href="/contacto" size="md" block>Contacto</Link>          
-        </div>
-      </div> 
+<header id="navbar" class="h-20 w-screen z-30 bg-gray-900 shadow-sm" >          
+        <!--NavBar lg+-->
+        <nav class="container flex items-center justify-between h-20">
+            <!-- Home Link -->
+            <div class="flex-shrink-0">
+                <a href="/" class="flex items-center">
+                    <img src={logo.src} class="w-auto h-12 lg:h-14" alt="Logo Imagen y Espacios" />              
+                </a> 
+            </div>
+            <!-- Navbar-toggle -->
+            <button id="navbar-toggle" type="button" aria-controls="navbar-menu" aria-label="Abrir Menú" aria-expanded="false" class="        pointer bg-transparent w-10 h-10 flex items-center justify-center flex-col transition-all duration-200 lg:hidden focus:bg-gray-800 hover:bg-gray-800">               
+                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-md bg-gray-300"></span>
+                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-md bg-gray-300"></span>
+                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-md bg-gray-300"></span>
+            </button>             
+            <!-- Navbar Menu -->
+            <div class="hidden lg:block" aria-label="main-navigation">
+                <ul id="navbar-items" class="lg:flex lg:items-center font-medium text-sm lg:space-x-8">
+                    {
+                        menuItems.map((item) => (
+                                <li>
+                                    <a href={item.path} class="block py-2 pl-3 pr-4 md:p-0 items-center text-gray-400 transform-acolors duration-200 ease-in-out hover:text-white">{item.title}</a>
+                                </li>
+                            ))
+                    }
+                </ul>
+            </div>      
+           
+            <div class="hidden lg:flex items-center gap-4">              
+                <Link href="#contacto" size="md" block>Contacto</Link>          
+            </div>
+        </nav>
+        
+          <!--NavBar sm to lg-->
+        <nav  class=" lg:hidden fixed top-16 left-0 z-40 w-full h-screen transition-transform duration-500">            
+            <div id="navbar-menu" class="overflow-y-auto py-32 px-8 h-full bg-white border-r border-gray-200 shadow-md" aria-label="main-navigation">                              
+                <ul id="navbar-links" class="space-y-4">
+                    {
+                        menuItems.map((item) => (
+                                <li>                                    
+                                    <a href={item.path} class="inline-flex text-base font-medium  text-gray-950 transition-all duration-200 hover:text-gray-500">{item.title}</a>
+                                </li>
+                            ))
+                    }
+                    <li class="py-2">                                    
+                     <Link href="#contacto" size="md" block>Contacto</Link>                       
+                    </li>
+                </ul> 
+            </div>            
+        </nav>
+        <!-- <div id="drawer-backdrop" class="hidden bg-gray-900 bg-opacity-80 fixed inset-0 z-30 h-screen"></div>        -->
+       
+        
+        <!--NavBar sm to lg-->
+        <!-- <nav  class=" lg:hidden container">
+            <div id="navbar-menu" class="fixed left-0 top-0 z-40 w-64 h-screen transition-transform -translate-x-full" aria-label="main-navigation">
+                <ul id="navbar-links" class="absolute overflow-hidden left-0 right-0 flex flex-col items-center p-6 m-4 rounded-lg transition-all duration-200 ease-in-out shadow-2xl">
+                    {
+                        menuItems.map((item) => (
+                                <li>                                    
+                                    <a href={item.path} class="inline-flex text-sm p-[1em] font-medium  text-gray-950 transition-all duration-200 hover:text-gray-500">{item.title}</a>
+                                </li>
+                            ))
+                    }
+                    <li class="py-2">                                    
+                     <Link href="#contacto" size="md" block>Contacto</Link>                       
+                    </li>
+                </ul> 
+            </div>
+
+        </nav> -->
 </header>
+
+<style>
+    #navbar-toggle[aria-expanded='true'] .icon-bar:is(:first-child, :last-child) {
+        position: absolute;
+        margin: 0;
+        width: 30px;
+    }
+
+    #navbar-toggle[aria-expanded='true'] .icon-bar:first-child {
+        transform: rotate(45deg);
+    }
+
+    #navbar-toggle[aria-expanded='true'] .icon-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    #navbar-toggle[aria-expanded='true'] .icon-bar:last-child {
+        transform: rotate(-45deg);
+    }
+
+    #navbar-menu{
+        opacity: 0; 
+        visibility: hidden;
+        translate-y: -100%
+    }
+
+    #navbar-menu[open]{       
+        opacity: 1; 
+        visibility: visible;
+        translate-y: 0%; 
+    }
+
+    .sticky {
+        position: fixed; 
+    }
+/* 
+    #navbar.opened #navbar-menu {
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 1;
+        visibility: visible;
+    } */
+
+   </style>
+
+<script>
+    const navbar = document.getElementById('navbar')
+    const navbarMenu = document.getElementById('navbar-menu');
+    const navbarToggle = document.getElementById('navbar-toggle');  
+    const navbarLinksContainer = navbarMenu.querySelector('#navbar-links')
+    
+
+    const toggleMenu = () => {
+        let drawerBackrop = document.getElementById('drawer-backrop')
+        navbarMenu.toggleAttribute('open');
+        const visibility = navbarToggle.getAttribute('aria-expanded')        
+        if(visibility === 'false'){
+            navbarToggle.setAttribute('aria-expanded', 'true')            
+        } else if(visibility === 'true'){
+            navbarToggle.setAttribute('aria-expanded', 'false')
+            drawerBackrop.classList.toggle('hidden');
+        }
+        
+       };
+    
+    // close the navigation menu by clicking on the #navbar-menu mask layer
+    navbarLinksContainer.addEventListener('click', (clickEvent) => clickEvent.stopPropagation())
+    navbarToggle.addEventListener('click', toggleMenu);
+    
+
+        
+    ///////////////////////////////////////////////
+    // Sticky Navigation //
+    //////////////////////////////////////////////
+    const navBar = document.getElementById('navbar');
+    const hero = document.getElementById('hero');
+
+    const stickyNav = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+        navBar.classList.add('sticky-nav');
+        } else {
+        navBar.classList.remove('sticky-nav');
+        }
+    });
+    };
+
+    const observer = new IntersectionObserver(stickyNav, {
+    threshold: 0.5
+    });
+
+    observer.observe(hero);
+
+
+    
+</script>
 

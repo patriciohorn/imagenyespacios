@@ -1,0 +1,94 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CTA from "../../components/CTA.astro";
+import relleno1 from '../../assets/productos/madera/relleno1.png'
+import relleno2 from '../../assets/productos/madera/relleno2.png'
+import relleno3 from '../../assets/productos/madera/relleno3.png'
+import CategoryCard from "../../components/CategoryCard.astro";
+import CoverBanner from "../../components/CoverBanner.astro";
+
+const specsMadera = [ 
+    {
+    title: 'Construcción', 
+    description: 'Solida, semisólida o de tambor', 
+    },
+    {
+    title: 'Origen', 
+    description: 'Fabricación nacional o internacional', 
+    },    
+    {
+    title: 'Personalización de Dimensiones', 
+    description: 'No limitadas a dimensiones estándar y grosor de 1 ¾". Posibilidad de solicitar tamaños personalizados', 
+    },
+    
+    {
+    title: 'Versatilidad de Uso', 
+    description: 'Fabricación para uso en exteriores, interiores o áreas especiales (contraincendios o acústicas)', 
+    },
+    {
+    title: 'Amplio Rango de Acabados', 
+    description: 'Chapas, laminado plástico, pintura sólida o barniz' 
+    },
+    
+]
+
+const cardsData = {
+  
+  relleno: [
+    {
+    title: 'Particula Aglomerada',
+    path: relleno1, 
+    }, 
+    {
+    title: 'Relleno Estructural',
+    path: relleno2, 
+    }, 
+    {
+    title: 'Roca Mineral',
+    path: relleno3, 
+    }
+  ], 
+}
+
+
+const heading = { tagline: 'Especificaciones', title: 'Puertas de Madera',description: 'Nos enorgullecemos de ser distribuidores líderes de una amplia gama de puertas de madera. Nuestros productos están destinados a la industria de la construcción y se utilizan en proyectos industriales, comerciales y desarrollos habitacional vertical o mixto, cumpliendo con certificaciones y normas de calidad internacionales'}
+---
+
+<Layout>
+<CoverBanner/>
+  <section class="pb-16 bg-gray-25">
+    <div class="relative container -mt-24 pb-24">   
+      <div class="max-w-2xl text-center mx-auto lg:max-w-4xl">
+        <h2 class="text-sm lg:text-base font-medium text-secondary-500">Especificaciones</h2>
+        <p class="mt-2 text-3xl font-bold leading-tight text-gray-950 lg:text-4xl lg:leading-[1.1]">{heading.title}</p>
+        <p class="mt-4 text-base text-gray-700">{heading.description}</p>                          
+      </div>
+      <div class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-20">
+        {specsMadera.map((spec => (
+          <div class="border-t border-gray-200 pt-4">
+          <h4 class="text-base font-medium text-gray-950">
+            {spec.title}
+          </h4>
+          <p class="mt-2 text-sm">
+            {spec.description}
+          </p>
+        </div>
+        )))}
+        <div class="border-t border-gray-200 pt-4">
+          <h4 class="text-base font-medium text-gray-950">
+               Relleno Interior
+          </h4>          
+          <ul class="mt-4 flex gap-x-8 max-w-sm">
+            {cardsData.relleno.map((data) => (
+              <li class="flex-1">
+                <CategoryCard title={data.title} path={data.path.src} href={data.title}/> 
+              </li>
+            ))}  
+          </ul>    
+        </div> 
+      </div>
+    </div>               
+  </section> 
+  <CTA/>
+</Layout>
+

@@ -14,24 +14,21 @@ import puertaMadera from '../assets/puerta-madera.png'
 import relleno1 from '../assets/productos/card-relleno1.png'
 import relleno2 from '../assets/productos/card-relleno2.png'
 import relleno3 from '../assets/productos/card-relleno3.png'
-
-
-// import Carrousel from './Carrousel.astro'
-
-
-import ansi from '../assets/certificaciones/ansi.svg'
-import fmApproved from '../assets/certificaciones/fm-approved.svg'
-import greenBuilding from '../assets/certificaciones/green-building.svg'
-import naamm from '../assets/certificaciones/naamm.svg'
-import nfpa from '../assets/certificaciones/nfpa.svg'
-import shield from '../assets/certificaciones/shield.svg'
-import soundProof from '../assets/certificaciones/sound-proof.svg'
-import ul from '../assets/certificaciones/ul.svg'
-
-
+import marcoUnBatiente from '../assets/productos/marco_un_batiente-sm.png'
+import marcoBatienteDesigual from '../assets/productos/marco-batiente_desigual.png'
+import marcoBatienteIgual from '../assets/productos/marco-batiente_igual.png'
+import marcoCabezalLiso from '../assets/productos/marco-cabezal_liso.png'
+import refuerzo1 from '../assets/productos/refuerzo1.png'
+import refuerzo2 from '../assets/productos/refuerzo2.png'
+import refuerzo3 from '../assets/productos/refuerzo3.png'
+import refuerzo4 from '../assets/productos/refuerzo4.png'
+import marcoAbrazar from '../assets/productos/marco-abrazar.png'
+import abrazarIsometric from '../assets/productos/marco-abrazarIsometric.png'
+import sobreponerIsometric from '../assets/productos/marco-sobreponerIsometric.png'
 
 
 import Categories from './Categories.astro'
+import CategoryCard from './CategoryCard.astro'
 
 export interface Props {
   activeTextColor? : string; 
@@ -92,7 +89,58 @@ const cardData =  {
           title: 'Puerta Blindada',
           body: 'Puertas y marcos blindados diseñados para resistir impactos de balas. Equipado con herrajes de alta'  
         }
+      ],  
+  batientesMarco: [
+        {
+        path: marcoUnBatiente, 
+        title: 'Un Batiente',        
+        },
+        {
+        path: marcoBatienteDesigual, 
+        title: 'Batiente Desigual',
+        
+        },
+        {
+        path: marcoBatienteIgual, 
+        title: 'Batiente Igual',
+        
+        },
+        {
+        path: marcoCabezalLiso, 
+        title: 'Cabezal Liso',        
+        },
+        {
+        path: sobreponerIsometric, 
+        // title: 'Para Muro de Mampostería',        
+        },          
+       
       ],
+  refuerzo: [
+        {
+        path: refuerzo1,               
+        },
+        {
+        path: refuerzo2,       
+        },
+        {
+        path: refuerzo3,        
+        },
+        {
+        path: refuerzo4,            
+        },       
+       
+      ],
+  abrazar: [
+        {
+        path: marcoAbrazar, 
+        title: 'Batiente Igual',        
+        },
+        {
+        path: abrazarIsometric, 
+        // title: 'Para Muro de Panel de Yeso (Tablaroca)',        
+        },       
+      ],
+  
   } 
 
 const doorSpecs = [ 'Lamina calibre 18 de (1.0 mm) ', 'Acero rolado en frío CR, perfecto para condiciones normales o secas', 'El relleno interior ofrece versatilidad total: elige entre poliestireno, honeycomb o lana mineral según tus necesidades', 'Nuestro acabado de fábrica es un recubrimiento de primario anticorrosivo gris, lista para personalizar con el color que prefiera. Además, puede solicitar nuestras puertas y marcos en una gama de colores RAL con pintura electrostática y horneado']
@@ -226,8 +274,7 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
     <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:px-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300 active">Metálicas</li>
     <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Especiales</li>
     <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Madera</li>
-    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Marcos</li>
-    <!-- <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Carpintería</li> -->
+    <li class="me-2 cursor-pointer tab inline-block px-2 py-4 lg:p-4 border-b-2 border-transparent hover:text-gray-600  hover:border-gray-300">Marcos</li>   
   </ul>
 </div>
 
@@ -239,9 +286,10 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
       <div>
         <h3 class="mb-4 text-2xl font-semibold text-gray-950 leading-tight">Puertas Metálicas de Acero</h3>
         <p class="mb-6 text-base">Puertas de acero lisas y sin marcas de soldaduras, abatibles para aperturas izquierdas o derechas. Ideales para almacenamiento o tráfico peatonal, tanto en interiores como exteriores</p>
-        <div class="flex gap-3">
-          <Link href="/productos" size="md">Cotizar Puertas</Link>
-          <Link href="/productos" style="outline" size="md">Especificaciones</Link>
+         
+        <div class="flex flex-col md:flex-row gap-3">
+          <Link href="/#contacto" size="md">Comencemos tu Proyecto</Link>
+          <Link href="./especificaciones/metalicas" style="outline" size="md">Especificaciones</Link>
         </div>
       </div>
     </div>      
@@ -250,74 +298,97 @@ const especialesSpecs = [ 'Certificaciones UL, WHI y FM contra incendio de hasta
 
   <!-- Puertas Especiales -->
   <div class="tab-content | grid grid-cols-1 gap-x-8 gap-y-10 pt-10 lg:pt-12 xl:grid-cols-6">
-    <div class="col-span-4 md:col-span-2">
-      <div>
+    <div class="col-span-4 md:col-span-2">      
         <h3 class="mb-4 text-2xl font-semibold text-gray-950 leading-tight">Puertas Especiales</h3>
         <p class="mb-6 text-base">Puertas de acero fabricadas con características especiales  pensadas para áreas con necesidades  específicas, utilizando lámina de acero rolado en frío o acero galvanizado según la especificación</p>
-        <div class="flex gap-3">
-          <Link href="/productos" size="md">Cotizar Puertas</Link>
-          <Link href="/productos" style="outline" size="md">Especificaciones</Link>
-        </div>
-      </div>
+        <div class="flex flex-col md:flex-row gap-3">
+          <Link href="/#contacto" size="md">Comencemos tu Proyecto</Link>
+          <Link href="./especificaciones/especiales" style="outline" size="md">Especificaciones</Link>
+        </div>      
     </div>      
-      <Categories cardData={cardData.especiales}/>  
+    <Categories cardData={cardData.especiales}/>  
   </div> 
 
   <!-- Puertas Madera -->
-  <div class="even-columns gap-20 tab-content | pt-10 lg:pt-12">    
+  <div class="tab-content even-columns | gap-10 pt-10 lg:pt-12">    
     <div>
-      <div>
+      <div class="xl:mr-40">
         <h3 class="text-2xl font-semibold text-gray-950 leading-tight mb-4">Puertas de Madera</h3>
-        <p class="text-base max-w-prose">Nos enorgullecemos de ser distribuidores líderes de una amplia gama de puertas de madera. Nuestros productos están destinados a la industria de la construcción y se utilizan en proyectos industriales, comerciales y desarrollos habitacional vertical o mixto, cumpliendo con certificaciones y normas de calidad internacionales</p>
-      </div>
-      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-8">
-        {specsMadera.map((spec => (
-          <div class="border-t border-gray-200 pt-4">
-          <h4 class="text-base font-medium text-gray-950">
-            {spec.title}
-          </h4>
-          <p class="mt-2 text-sm">
-            {spec.description}
-          </p>
+        <p class="mb-6 text-base max-w-prose">Nos enorgullecemos de ser distribuidores líderes de una amplia gama de puertas de madera. Nuestros productos están destinados a la industria de la construcción y se utilizan en proyectos industriales, comerciales y desarrollos habitacional vertical o mixto, cumpliendo con certificaciones y normas de calidad internacionales</p>
+        <div class="flex flex-col md:flex-row gap-3">
+          <Link href="/#contacto" size="md">Comencemos tu Proyecto</Link>
+          <Link href="./especificaciones/madera" style="outline" size="md">Especificaciones</Link>
         </div>
-        )))}
-      </div>      
+      </div>    
     </div>
     <div class="flex gap-4">
-      <div class="max-w-sm ml-auto">
-        <Image class="w-full h-auto md:h-full rounded-lg" src={puertaMadera} alt="Puerta de madera" />     
+      <div class="">
+        <Image class="w-full h-auto md:h-full rounded-lg shadow-sm " src={puertaMadera} alt="Puerta de madera" />              
       </div>
+      
       <div class="flex flex-col justify-between">
-        <Image class="w-full h-auto rounded-lg" src={relleno1} alt="Puerta de madera" />
-        <Image class="w-full h-auto rounded-lg" src={relleno2} alt="Puerta de madera" />
-        <Image class="w-full h-auto rounded-lg" src={relleno3} alt="Puerta de madera" />
+        <Image class="w-full h-auto rounded-lg shadow-sm" src={relleno1} alt="Puerta de madera" />
+        <Image class="w-full h-auto rounded-lg shadow-sm" src={relleno2} alt="Puerta de madera" />
+        <Image class="w-full h-auto rounded-lg shadow-sm" src={relleno3} alt="Puerta de madera" />
       </div> 
     </div>
          
   </div>
 
   <!-- Marcos Metálicos -->
-  <div class="even-columns tab-content | pt-10 lg:pt-12">    
-    <div>
-      <div>
+  <div class="tab-content | grid grid-cols-1 xl:grid-cols-6 gap-x-8 gap-y-10 pt-10 lg:pt-12">    
+      <div class="col-span-4 md:col-span-2">
         <h3 class="text-2xl font-semibold text-gray-950 leading-tight mb-4">Marcos Metálicos</h3>
         <p class="text-base max-w-prose">Ofrecemos marcos metálicos de alta calidad diseñadas para satisfacer las diversas necesidades de la industria. Fabricados bajo los mismos estándares de calidad que nuestras puertas, y diseñados de acuerdo con su funcionamiento o el tipo de muro donde serán instalados</p>
-      </div>
-      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-8">
-        {specsMarcos.map((spec => (
-          <div class="border-t border-gray-200 pt-4">
-          <h4 class="text-base font-medium text-gray-950">
-            {spec.title}
-          </h4>
-          <p class="mt-2 text-sm">
-            {spec.description}
-          </p>
+        <div class="flex flex-col md:flex-row mt-4 gap-3">
+          <Link href="/#contacto" size="md">Comencemos tu Proyecto</Link>
+          <Link href="./especificaciones/marcos" style="outline" size="md">Especificaciones</Link>
         </div>
-        )))}
-      </div>      
-    </div>
-    <div class="">      
-    </div>      
+      </div>     
+    
+      <div class="col-span-4">
+        <section class="">
+          <div class="">
+            <h3 class="text-base font-semibold text-primary-500">Batiente de Marco de Sobreponer</h3>
+            <p class="text-sm mt-1">Para Muro de Mampostería</p>
+          </div>          
+          <ul class="mt-4 grid grid-cols-3 gap-x-6 gap-y-6 sm:gap-y-10 md:grid-cols-5 xl:gap-x-6">
+            {cardData.batientesMarco.map((card) => (
+              <li>
+                <CategoryCard title={card.title} path={card.path.src} href={card.title} />
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="mt-8">
+          <div class="">
+            <h3 class="text-base font-semibold text-primary-500 ">Refuerzos en Marco de Sobreponer</h3>
+          </div>        
+          <ul class="mt-4 grid grid-cols-3 gap-x-6 gap-y-6 sm:gap-y-10 md:grid-cols-5 xl:gap-x-6">
+            {cardData.refuerzo.map((card) => (
+              <li>
+                <CategoryCard path={card.path.src} href="refuerzo en marco de sobreponer" />
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="mt-6">
+          <div class="">
+            <h3 class="text-base font-semibold text-primary-500">Batiente de Marco de Abrazar</h3>
+            <p class="mt-1 text-sm">Para Muro de Panel de Yeso (Tablaroca)</p>
+          </div>          
+          <ul class="mt-4 grid gap-x-6 gap-y-6 grid-cols-3 sm:gap-y-10 md:grid-cols-5 xl:gap-x-6">
+            {cardData.abrazar.map((card) => (
+              <li>
+                <CategoryCard path={card.path.src} title={card.title} href="refuerzo en marco de sobreponer" />
+              </li>
+            ))}
+          </ul>
+        </section>               
+      </div> 
+      
   </div>
   
 </div>

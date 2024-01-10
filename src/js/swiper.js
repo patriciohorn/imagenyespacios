@@ -33,7 +33,7 @@ const swiper = new Swiper('.swiper', {
   breakpoints: {
     // when window width is >= 320px
     480: {
-      slidesPerView: 3,
+      slidesPerView: 3.25,
       spaceBetween: 32,
       navigation: {
         enabled: true

@@ -1,0 +1,15 @@
+---
+const {specs} = Astro.props
+---
+
+{specs.map((spec => (
+  <div class="border-t border-gray-200 pt-4">
+    <h4 class="text-base font-medium text-gray-950">
+          {spec.title}
+    </h4>
+    <p class="mt-2 text-sm">
+          {spec.description}
+    </p>    
+  </div>
+)))}
+  

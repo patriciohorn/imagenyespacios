@@ -1,9 +1,16 @@
 ---
+export interface Props {
+  title? : string, 
+  body? : string, 
+  path?: string, 
+  href?: string
+}
+
 const { title, body, path } = Astro.props
 ---
 
 <div class="flex flex-col gap-4">
-  <div class="aspect-[1/1] relative overflow-hidden rounded-lg">
+  <div class="aspect-[1/1] relative overflow-hidden rounded-lg bg-gray-100 ring-1 ring-gray-900/10">
     <img class="w-full h-full absolute inset-0" src={path} alt={title}>
   </div>
   <div>

@@ -3,7 +3,7 @@
 import Heading from "./Heading.astro";
 import Card from "./Card.astro";
 
-const heading = { tagline: 'Servicios', title: 'Puertas que transforman espacios',description: 'Ofrecemos servicios diseñados específicamente para cumplir con los requisitos únicos de tu proyecto'}
+const heading = { tagline: 'Servicios', title: 'Puertas que Transforman Espacios',description: 'Ofrecemos servicios diseñados específicamente para cumplir con los requisitos únicos de tu proyecto'}
 
 const features = [
   {
@@ -26,8 +26,8 @@ const features = [
 ---
 
 
-<section class="section-padding bg-gray-25 relative isolate">
-  <div class="pattern-grid-xl absolute inset-0 w-full h-full text-gray-100/50 -z-10"></div>  
+<section id="servicios" class="section-padding bg-gray-25 relative isolate">
+  <!-- <div class="pattern-grid-xl absolute inset-0 w-full h-full text-gray-100/40 -z-10"></div>   -->
   <div class="container">
     <div>      
       <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="center" taglineColor="secondary-500" titleColor="gray-950"/>    

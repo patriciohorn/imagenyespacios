@@ -2,22 +2,123 @@
 import Link from "./Link.astro";
 import ctaImg from "../assets/cta.png"
 
-const heading = { tagline: 'Contactanos', headingText: '¿Listo para Transformar tus Espacios?', descriptionText: 'Da el primer paso para comenzar tu proyecto y ponte en contacto con nosotros para obtener mas información'}
+const heading = { tagline: 'Contactanos', headingText: '¿Listo para Transformar Tus Espacios?', descriptionText: 'Da el primer paso para comenzar tu proyecto. Envíanos un mensaje o contáctanos para obtener mas información'}
 ---
 
-<section class="section-padding relative overflow-hidden bg-gray-950">
-  <div class="absolute inset-0">
-      <img class="object-cover w-full h-full md:object-left md:origin-top-left" src={ctaImg.src} alt="" />
-  </div>
-  <div class="absolute inset-0 hidden bg-gradient-to-r md:block from-gray-950 to-transparent"></div>
-  <div class="absolute inset-0 block bg-gray-950/60 md:hidden"></div>
-
-  <div class="relative container">
-      <div class="text-center md:w-2/3 lg:w-1/2 xl:w-1/3 md:text-left">
-          <h3 class="text-3xl font-bold leading-tight text-gray-25 sm:text-4xl lg:text-5xl lg:leading-[1.1]">{heading.headingText}</h3>
-          <p class="mt-4 text-lg text-gray-200">{heading.descriptionText}</p>
-          <Link href="/contacto" class="mt-6">Inicia tu Proyecto</Link>      
-      </div>
-  </div>
+<section id="contacto" class="pt-16 lg:pt-24 xl:pt-32 relative overflow-hidden bg-gray-900">
+        
+        <!-- <div class="absolute inset-0">
+            <img class="object-cover w-full h-full md:object-left md:origin-top-left" src={ctaImg.src} alt="" />
+        </div>
+        <div class="absolute inset-0 hidden bg-gradient-to-r md:block from-gray-950 to-transparent"></div>
+        <div class="absolute inset-0 block bg-gray-950/60 md:hidden"></div> -->
+      
+        <div class="container">
+          <div class="even-columns md:items-stretch gap-x-12 lg:gap-x-20 gap-y-10">
+              <div class="relative text-center md:text-left flex flex-col">
+                  <h3 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl">{heading.headingText}</h3>
+                  <p class="mt-4 max-w-xl mx-auto text-lg leading-relaxed text-gray-400">{heading.descriptionText}</p>
+                  <img class="relative z-10 max-w-xs mx-auto -mb-16 md:hidden" src="https://cdn.rareblocks.xyz/collection/celebration/images/contact/4/curve-line-mobile.svg" alt="" />
+                  <img class="hidden w-full md:block absolute top-1/3 left-1/3 translate-y-8" src="https://cdn.rareblocks.xyz/collection/celebration/images/contact/4/curve-line.svg" alt="" />
+                 
+                  <div class="grid grid-cols-2 gap-x-8 gap-y-10 mt-10 z-10">
+                    <div class="flex flex-col md:flex-row gap-6">                       
+                        <i class="ph ph-clock text-2xl text-gray-25 bg-primary-500 w-10 h-10 inline-flex items-center justify-center rounded-lg mx-auto md:mx-0"></i>
+                        <div>
+                            <h4 class="text-gray-300 text-base leading-7 font-semibold">Horario</h4>
+                            <ul class="mt-2 space-y-2 text-gray-400 text-sm font-medium">
+                                <li><p>Lunes - Viernes</p></li>
+                                <li><p>9:00 am - 5:00 pm</p></li>
+                            </ul>    
+                        </div>                        
+                                                                   
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-6">                       
+                        <i class="ph ph-phone text-xl text-white bg-primary-500 w-10 h-10 inline-flex items-center justify-center rounded-lg mx-auto md:mx-0"></i>
+                        <div class="">
+                            <h4 class="text-gray-300 text-base leading-7 font-semibold">Contacto</h4>
+                            <ul class="mt-2 space-y-2 text-gray-400 text-sm font-medium">
+                                <li><a class="transform-color duration-200 ease-out hover:text-white" href="tel:+528183359712">(81) 8335 9712</a></li>
+                                <li><a class="transform-color duration-200 ease-out hover:text-white" href="tel:+528183359712">(81) 8180 99 4365</a></li>
+                            </ul>    
+                        </div>       
+                                                                   
+                    </div>            
+                  
+                    <div class="flex flex-col md:flex-row gap-6">                       
+                        <i class="ph ph-at text-2xl text-white bg-primary-500 w-10 h-10 inline-flex items-center justify-center rounded-lg mx-auto md:mx-0"></i>
+                        <div class="">
+                            <h4 class="text-gray-300 text-base leading-7 font-semibold">Correo</h4>
+                            <ul class="mt-2 space-y-1 text-gray-400 text-sm font-medium">
+                                <li>                                    
+                                    <a class="ransform-color duration-200 ease-out hover:text-white" href="mailto:imagensa@hotmail.com">imagensa@hotmail.com</a>
+                                  </li>
+                            </ul>    
+                        </div>                        
+                                                                   
+                    </div>                   
+                </div>              
+              </div>
+              
+              <div class="lg:pl-24">
+                  <div class="overflow-hidden bg-white rounded-md">
+                      <div class="p-6 sm:p-10">                         
+                          <form action="#" method="POST" class="mt-4">
+                              <div class="space-y-6">
+                                  <div>
+                                      <label for="" class="text-base font-medium text-gray-900"> Nombre </label>
+                                      <div class="mt-2.5 relative">
+                                          <input
+                                              type="text"
+                                              name=""
+                                              id=""
+                                              placeholder="Ingresa tu Nombre"
+                                              class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 caret-primary-500"
+                                          />
+                                      </div>
+                                  </div>
+      
+                                  <div>
+                                      <label for="" class="text-base font-medium text-gray-950"> Correo Electrónico </label>
+                                      <div class="mt-2.5 relative">
+                                          <input
+                                              type="text"
+                                              name=""
+                                              id=""
+                                              placeholder="Ingresa tu correo electrónico"
+                                              class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 caret-primary-500"
+                                          />
+                                      </div>
+                                  </div>
+      
+                                  <div>
+                                      <label for="" class="text-base font-medium text-gray-950"> Resumen del Proyecto </label>
+                                      <div class="mt-2.5 relative">
+                                          <textarea
+                                              name=""
+                                              id=""
+                                              placeholder="Describe brevemente tu proyecto"
+                                              class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:ring-primary-500 focus:border-primary-500 caret-primary-500"
+                                              rows="4"
+                                          ></textarea>
+                                      </div>
+                                  </div>
+      
+                                  <div>
+                                      <button type="submit" class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-primary-500 border border-transparent rounded-md focus:outline-none hover:bg-primary-600 focus:bg-primary-600">
+                                          Envíar Mensaje
+                                      </button>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>      
+        
+          </div>
+          
+      
+        </div> 
 </section>
+
 

@@ -1,0 +1,194 @@
+---
+import { Image } from 'astro:assets'
+import estandarImg from '../../assets/productos/estandar.png'
+import puertaEmergencia from '../../assets/productos/salidaEmergencia.png'
+import puertaContraFuego from '../../assets/productos/contra-fuego.png'
+import antivandalica from '../../assets/productos/antivandalica.png'
+import multiUsos from '../../assets/productos/multiusos.png'
+import relleno1 from '../../assets/productos/metalicas/relleno1.png'
+import relleno2 from '../../assets/productos/metalicas/relleno2.png'
+import relleno3 from '../../assets/productos/metalicas/relleno3.png'
+
+
+import ansi from '../../assets/certificaciones/ansi.svg'
+import fmApproved from '../../assets/certificaciones/fm-approved.svg'
+import greenBuilding from '../../assets/certificaciones/green-building.svg'
+import naamm from '../../assets/certificaciones/naamm.svg'
+import nfpa from '../../assets/certificaciones/nfpa.svg'
+import shield from '../../assets/certificaciones/shield.svg'
+import soundProof from '../../assets/certificaciones/sound-proof.svg'
+import ul from '../../assets/certificaciones/ul.svg'
+
+
+
+import Layout from "../../layouts/Layout.astro";
+import specBg from "../../assets/cta.png"
+import Table from "../../components/Table.astro";
+import CategoryCard from "../../components/CategoryCard.astro";
+import CTA from '../../components/CTA.astro'
+
+const heading = { tagline: 'Especificaciones', title: 'Puertas Metálicas de Acero',description: 'Puertas de acero lisas y sin marcas de soldaduras, abatibles para aperturas izquierdas o derechas. Ideales para almacenamiento o tráfico peatonal, tanto en interiores como exteriores'}
+
+const specsEspeciales = [ 
+    {
+    title: 'Material de Lámina', 
+    description: 'Lamina calibre 18 de (1.0 mm.)', 
+    },
+    {
+    title: 'Fabricación', 
+    description: 'Acero rolado en frío CR (usadas en condiciones secas o normales). Acero galvanizado A60 (condiciones de intemperie o alto grado de humedad en el ambiente)', 
+    },
+    {
+    title: 'Acabado de Fábrica', 
+    description: 'Recubrimiento de primer anticorrosivo gris para posteriormente ser pintada en un color de su elección', 
+    },
+    {
+    title: 'Opción Pre-Pintada', 
+    description: 'También ofrecemos la opción de solicitar puertas y marcos pintados de fábrica en colores del código RAL en pintura electrostática y proceso horneado', 
+    },     
+]
+
+const certificaciones = [ansi, fmApproved, greenBuilding, naamm, nfpa, shield, soundProof, ul]
+
+const cardsData = {
+  productos: [{  
+        path: estandarImg, 
+        title: 'Puerta Estándar',
+        body: 'Puerta industrial versátil para construcción vertical, comercio y áreas de servicio, ideal para alto tráfico peatonal'  
+        },
+        {
+        path: puertaEmergencia, 
+        title: 'Salida de Emergencia',
+        body: 'Permite salida inmediata para rutas de evacuación o salidas directas al exterior en situaciones críticas'  
+        },
+        {
+        path: puertaContraFuego, 
+        title: 'Contra Fuego',
+        body: 'Preveniene la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio'  
+        }, 
+        {
+        path: antivandalica, 
+        title: 'Antivandálica Steel Stiffened',
+        body: 'Ideal para áreas expuestas a exteriores y alto tráfico, proporciona protección ante ataques vandálicos'  
+        }, 
+        {
+          path: multiUsos, 
+          title: 'Puerta Multiusos',
+          body: 'Puerta y marco diseñados para uso moderado. Ofrecemos una solución integral y económica que incluye marco, bisagras y cerradura'  
+        
+        
+        
+        
+        }], 
+  relleno: [
+    {
+    title: 'Poliestireno',
+    path: relleno1, 
+    }, 
+    {
+    title: 'Honey Comb',
+    path: relleno2, 
+    }, 
+    {
+    title: 'Lana Mineral',
+    path: relleno3, 
+    }
+  ], 
+  colores: [
+    {
+    codigo: '1013', 
+    color: '#EAE6C9'
+    }, 
+    {
+    codigo: '5002', 
+    color: '#20214F'
+    }, 
+    {
+    codigo: '7002', 
+    color: '#7E7B52'
+    }, 
+    {
+    codigo: '7042', 
+    color: '#8D948C'
+    }, 
+    {
+    codigo: '9003', 
+    color: '#F4F4F4'
+    }
+]
+
+}
+
+---
+
+<Layout>  
+  <section class="relative">
+    <img class="object-cover w-full h-[16rem] object-center" src={specBg.src} alt="" />    
+    <div class="absolute inset-0 hidden bg-gradient-to-t md:block from-gray-50 to-transparent"></div>
+    <div class="absolute inset-0 block bg-gray-50/60 md:hidden"></div>    
+    <div class="absolute inset-0 hidden bg-gradient-to-t md:block from-gray-50 to-transparent"></div>
+    <div class="absolute inset-0 block bg-gray-50/60 md:hidden"></div>
+  </section>
+  
+  <section class="pb-16 bg-gray-50">
+    <div class="relative container -mt-24 pb-24">   
+      <div class="max-w-2xl text-center mx-auto lg:max-w-4xl">
+        <h2 class="text-sm lg:text-base font-medium text-secondary-500">Especificaciones</h2>
+        <p class="mt-2 text-3xl font-bold leading-tight text-gray-950 lg:text-4xl lg:leading-[1.1]">{heading.title}</p>
+        <p class="mt-4 text-base text-gray-700">{heading.description}</p>               
+      </div>
+
+      <ul class="mt-16 md:mt-20 even-columns gap-x-8 gap-y-10">
+        {cardsData.productos.map((data) => (
+          <li>
+            <CategoryCard title={data.title} body={data.body} path={data.path.src} href={data.title}/>
+          </li>          
+        ))} 
+      </ul>      
+      <div class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-20">
+        <Table specs={specsEspeciales}/>
+        <div class="border-t border-gray-200 pt-4">
+          <h4 class="text-base font-medium text-gray-950">
+               Colores
+          </h4>
+          <p class="text-sm mt-2">Elección de colores específicos del código RAL para la pintura</p>
+          <ul class="mt-4 flex gap-x-8">
+            {cardsData.colores.map((data) => (
+              <li class="flex-1 flex flex-col gap-4">
+                <div class="aspect-[1/1] relative overflow-hidden rounded-lg ring-1 ring-gray-900/10" style={`background: ${data.color}`}></div>
+                <h4 class="text-sm font-semibold text-gray-950">{data.codigo}</h4>
+              </li>
+            ))}  
+          </ul>    
+        </div>     
+        <div class="border-t border-gray-200 pt-4">
+          <h4 class="text-base font-medium text-gray-950">
+               Relleno Interior
+          </h4>
+          <p class="text-sm mt-2">Contiene panel interior a elegir dependiendo uso al que se destine</p>
+          <ul class="mt-4 flex gap-x-8 max-w-sm">
+            {cardsData.relleno.map((data) => (
+              <li class="flex-1">
+                <CategoryCard title={data.title} path={data.path.src} href={data.title}/> 
+              </li>
+            ))}  
+          </ul>    
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <h4 class="text-base font-medium text-gray-950">
+               Certificaciones
+          </h4>
+          <p class="text-sm mt-2">Certificaciones UL, WHI, FM contra incendios hasta tres horas</p>           
+          <ul class="mt-2 flex items-center gap-x-8">
+            {certificaciones.map((cert) => (
+               <li>
+                <img src={cert.src} alt="logo certificación" class="w-full h-auto"/>
+               </li>  
+            ))}                    
+          </ul>          
+        </div>                   
+      </div>           
+    </div>
+  </section>  
+  <CTA/> 
+</Layout>

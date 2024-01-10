@@ -1,8 +1,8 @@
 ---
 import logo from '../assets/logo-white.svg'
 ---
-<footer class="bg-gray-950">
-  <div class="container py-10 sm:pt-24">
+<!-- <footer class="bg-gray-900">
+  <div class="container">
       <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
               <a aria-label="volver a inicio" href="/" class="flex items-center">
@@ -12,7 +12,7 @@ import logo from '../assets/logo-white.svg'
           <div class="grid grid-flow-col grid-cols-auto-cols-fr gap-8 sm:gap-x-20">              
               <div>
                   <p class="mb-4 text-xs sm:text-sm font-medium text-gray-25 uppercase">Empresa</p>
-                  <ul class="text-gray-200 flex flex-col gap-3 text-sm">
+                  <ul class="text-gray-200 flex gap-3 text-sm">
                       <li class="">
                           <a href="#nosotros" class="transform-color duration-200 ease-out hover:text-secondary-500">Nosotros</a>
                       </li>
@@ -27,25 +27,10 @@ import logo from '../assets/logo-white.svg'
                       </li>
                   </ul>
               </div>
-              <div>
-                  <p class="mb-4 text-xs sm:text-sm font-medium text-white uppercase">Contacto</p>
-                  <ul class="text-gray-200 flex flex-col gap-3 text-sm">
-                    <li class="flex items-center transform-color duration-200 ease-out hover:text-secondary-500">
-                      <i class="ph-fill ph-envelope text-xl mr-3"></i>
-                      <a class="inline-block w-fit not-italic" href="mailto:imagensa@hotmail.com">imagensa@hotmail.com</a>
-                    </li>
-                    <li class="flex items-center transform-color duration-200 ease-out hover:text-secondary-500">
-                      <i class="ph-fill ph-phone text-xl mr-3"></i>
-                      <a class="inline-block w-fit not-italic" href="tel:+528183359712">(81) 8335 9712</a>
-                    </li>
-                    <li class="flex items-center transform-color duration-200 ease-out hover:text-secondary-500">
-                      <i class="ph-fill ph-whatsapp-logo text-xl  mr-3"></i>
-                      <a class="w-fit inline-block not-italic" href="tel:+528183359712">(81) 8180 99 4365</a>
-                    </li>
-                  </ul> 
-              </div>
+             
           </div>
       </div>
+
       <hr class="my-8 border-gray-800 sm:mx-auto lg:my-12" />
       <div class="sm:flex sm:items-center sm:justify-center">
           <p class="text-sm text-gray-600 smt:text-center">© 2023 Imagen y Espacios S.A de C.V. Todos los Derechos Reservados
@@ -53,4 +38,34 @@ import logo from '../assets/logo-white.svg'
         </div> 
       </div>
   </div>
+</footer> -->
+
+
+
+
+<footer class="bg-gray-900 py-16">
+    <div class="w-full container">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="#" class="flex items-center justify-center  mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src={logo.src} class="h-16" alt="Flowbite Logo" />             
+            </a>
+            <ul class="flex flex-wrap items-center justify-center mb-6 text-sm font-medium text-gray-400 sm:mb-0">
+                <li>
+                    <a href="#" class="transform-all duration-200 ease-in-out hover:text-white me-4 md:me-6">Nosotros</a>
+                </li>
+                <li>
+                    <a href="#" class="transform-all duration-200 ease-in-out hover:text-white me-4 md:me-6">Servicios</a>
+                </li>
+                <li>
+                    <a href="#" class="transform-all duration-200 ease-in-out hover:text-white me-4 md:me-6">Productos</a>
+                </li>
+                <li>
+                    <a href="#" class="transform-all duration-200 ease-in-out hover:text-white me-4 md:me-6">Proyectos</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
+        <span class="block text-sm text-center text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Imagen y Espacios S.A. de C.V.</a> Todos los Derechos Reservados.</span>
+    </div>
 </footer>
+
