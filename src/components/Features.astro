@@ -1,7 +1,5 @@
 ---
-// import {Icon} from 'astro-icon'; 
 import Heading from "./Heading.astro";
-import Card from "./Card.astro";
 
 const heading = { tagline: 'Servicios', title: 'Puertas que Transforman Espacios',description: 'Ofrecemos servicios diseñados específicamente para cumplir con los requisitos únicos de tu proyecto'}
 
@@ -32,8 +30,7 @@ const features = [
     <div>      
       <Heading tagline={heading.tagline} title={heading.title} description={heading.description} align="center" taglineColor="secondary-500" titleColor="gray-950"/>    
       <div class="even-columns text-center gap-x-8 gap-y-8">
-        {features.map(feature => (
-          <Card>
+        {features.map(feature => (          
           <div>
             <div class="flex justify-center items-center mx-auto w-10 h-10 md:w-12 md:h-12 rounded-[10px] bg-primary-500 shadow-sm">
               <i class={`ph ph-${feature.icon} text-2xl text-primary-50`}></i>   
@@ -41,12 +38,10 @@ const features = [
             <h3 class="mt-6 text-xl font-semibold text-primary-500">{feature.title}</h3>
             <p class="mt-2 text-base">{feature.body}</p> 
           </div>              
-          </Card>
+          
         ))}  
-      </div>      
-
-    </div>
-    
+      </div>  
+    </div>   
   </div>
 </section>
 

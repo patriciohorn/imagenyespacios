@@ -1,12 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import heroImg from '../assets/hero.png'
-import carpintery from '../assets/gallery/carpinteria/portrait-1.png'
 import Link from '../components/Link.astro'
 
 import '../styles/global.css'
 ---
 
-<section class="bg-gray-900 pb-24 lg:pb-32 pt-14">     
+<section class="bg-gray-900 pb-24 lg:pb-32 pt-36 relative overflow-hidden">     
   <div class="container">
     <div class="even-columns items-center gap-y-20 gap-x-20">
       <div>
@@ -17,31 +17,11 @@ import '../styles/global.css'
           <Link href="#productos" style="outline">Nuestros Soluciones</Link>
         </div>      
       </div>
-      <div class="relative max-w-xl ml-auto z-0">
-        <div class="text-gray-500 pattern-dots-md h-40 w-40 absolute -top-6 -left-6 -z-[1] "></div>
-        <div class="text-gray-500 pattern-dots-md h-40 w-40 absolute -bottom-6 -right-6 -z-[1] "></div>
-        <img class="w-full h-auto rounded-lg shadow-lg" src={heroImg.src} alt="Puertas estandares">     
-    </div>
+      <div class="relative max-w-xl mr-0 z-0">
+        <figure class="overflow-hidden rounded-lg relative">
+          <Image class="object-cover w-full h-auto" src={heroImg} alt="Puertas estandares"/>         
+        </figure>
+        <div class="text-gray-500 pattern-dots-md h-40 w-40 absolute -top-6 -left-6 -z-[1]"></div>
+        <div class="text-gray-500 pattern-dots-md h-40 w-40 absolute -bottom-6 -right-6 -z-[1]"></div>        
   </div>
 </section>
-
-<!-- 
-<section class="relative">  
-  <div class="container">
-    <div class="grid lg:grid-cols-12 lg:gap-8">
-      <div class="pb-16 pt-20 z-10 lg:col-span-6 lg:pt-48 lg:pb-56">
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-semibold lg:tracking-tight xl:tracking-tighter text-primary-900">Creamos accesos y espacios seguros</h1>
-        <p class="text-xl mt-6 text-slate-600 max-w-xl">Somos expertos en la creación de proyectos y soluciones de acceso que garantizan la seguridad de las personas</p>
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <Link href="#productos">Ver Productos</Link>
-          <Link href="#cta" style="outline">Cotiza Ahora</Link>
-        </div>      
-      </div>    
-      <div class="relative lg:ml-4 lg:col-span-5 lg:absolute lg:inset-0 lg:left-1/2 lg:mr-0 overflow-hidden">
-        <img class="object-cover w-full lg:absolute lg:inset-0 lg:aspect-auto lg:h-full" src={heroImg.src} alt="">  
-      </div>                
-  </div>
-  </div>  
- 
-</section> -->
-

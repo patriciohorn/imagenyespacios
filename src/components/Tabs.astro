@@ -1,4 +1,6 @@
 ---
+import Categories from './Categories.astro'
+import CategoryCard from './CategoryCard.astro'
 import { Image } from 'astro:assets'
 import Link from './Link.astro'
 import estandarImg from '../assets/productos/estandar.png'
@@ -27,40 +29,27 @@ import abrazarIsometric from '../assets/productos/marco-abrazarIsometric.png'
 import sobreponerIsometric from '../assets/productos/marco-sobreponerIsometric.png'
 
 
-import Categories from './Categories.astro'
-import CategoryCard from './CategoryCard.astro'
-
-export interface Props {
-  activeTextColor? : string; 
-  headings: string[];    
-}
-
-const {headings, activeTextColor = '#1d4ed8'} = Astro.props as Props; 
-
-const tabTitle = ['Puertas Metálicas', 'Puertas Especiales', 'Puertas Madera', 'Marcos Metálicos', 'Carpintería']
-
-
 const cardData =  {
   metalicas: [
         {
         path: estandarImg, 
         title: 'Puerta Estándar',
-        body: 'Puerta industrial versátil para construcción vertical, comercio y áreas de servicio, ideal para alto tráfico peatonal'  
+        body: 'Puerta industrial versátil utilizada en sector industrial, comercial y construcción vertical. Ideal para áreas de alto tráfico peatonal, almacenamiento y áreas de servicio'  
         },
         {
         path: puertaEmergencia, 
         title: 'Salida de Emergencia',
-        body: 'Permite salida inmediata para rutas de evacuación o salidas directas al exterior en situaciones críticas'  
+        body: 'Permite salida inmediata al presionar la barra antipánico para rutas de evacuación o salidas directas al exterior en situaciones de emergencia'  
         },
         {
         path: puertaContraFuego, 
         title: 'Contra Fuego',
-        body: 'Preveniene la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio'  
+        body: 'Preveniene la propagación de incendios al bloquear el paso de humo y gases de combustión en el edificio. Con certificación si tiene todos los elementos sellados y sin mirillas'  
         }, 
         {
         path: antivandalica, 
         title: 'Antivandálica Steel Stiffened',
-        body: 'Ideal para áreas expuestas a exteriores y alto tráfico, proporciona protección ante ataques vandálicos'  
+        body: 'Ideal para áreas expuestas a exteriores y alto tráfico, proporciona mayor protección ante ataques vandálicos con refuerzos longitudinales y rellenos de fibra de vidrio entre ellos'  
         }, 
         {
           path: multiUsos, 
@@ -72,22 +61,22 @@ const cardData =  {
         {
         path: fullLouvre, 
         title: 'Full Louver',
-        body: 'Puerta con rejilla completa para espacios que requieren ventilación adicional'  
+        body: 'Puerta con rejilla completa para espacios que requieren ventilación adicional. Disponible en medidas estándares y nominales especiales'  
         },
         {
         path: acustica, 
         title: 'Puerta Acústica',
-        body: 'Con relleno acústico y sellos perimetrales impide que el sonido se propague de una área a otra'  
+        body: 'Con relleno de aislante acústico y sellos perimetrales impide que el sonido se propague de una área a otra. Cumple con normas ASTM y soporta hasta 43 STC decibeles'  
         },
         {
         path: huracan, 
         title: 'Contra Huracán',
-        body: 'Diseñada por MMI y aprobada por UL. Recomendada para áreas donde las condiciones climáticas sean severas'  
+        body: 'Diseñada por MMI y aprobada por UL en todos los protocolos contra huracanes y recomendaciones de construcción ASTM. Fabricada para resistir 70 FPS de impacto. Para áreas donde las condiciones climáticas sean severas'  
         },        
         {
           path: blindada, 
           title: 'Puerta Blindada',
-          body: 'Puertas y marcos blindados diseñados para resistir impactos de balas. Equipado con herrajes de alta'  
+          body: 'Puertas y marcos blindados diseñados para resistir impactos de balas de armas cortas de alto poder, y de armas largas de uso militar. Equipado con herrajes de alta seguridad'  
         }
       ],  
   batientesMarco: [

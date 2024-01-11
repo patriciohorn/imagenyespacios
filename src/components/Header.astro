@@ -24,21 +24,15 @@ const menuItems = [
 ]
 ---
 
-<header id="navbar" class="h-20 w-screen z-30 bg-gray-900 shadow-sm" >          
+<header id="navbar" class="fixed top-0 w-full h-16 lg:h-20 z-[100] bg-gray-900" >          
         <!--NavBar lg+-->
-        <nav class="container flex items-center justify-between h-20">
-            <!-- Home Link -->
-            <div class="flex-shrink-0">
-                <a href="/" class="flex items-center">
-                    <img src={logo.src} class="w-auto h-12 lg:h-14" alt="Logo Imagen y Espacios" />              
-                </a> 
-            </div>
-            <!-- Navbar-toggle -->
-            <button id="navbar-toggle" type="button" aria-controls="navbar-menu" aria-label="Abrir Menú" aria-expanded="false" class="        pointer bg-transparent w-10 h-10 flex items-center justify-center flex-col transition-all duration-200 lg:hidden focus:bg-gray-800 hover:bg-gray-800">               
-                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-md bg-gray-300"></span>
-                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-md bg-gray-300"></span>
-                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-md bg-gray-300"></span>
-            </button>             
+        <nav class="container flex items-center justify-between h-16 lg:h-20">
+            <!-- Home Link -->            
+            <a href="/" class="flex items-center">
+                <img src={logo.src} class="inline-flex w-auto h-12 lg:h-14" alt="Logo Imagen y Espacios" />              
+            </a> 
+            
+                       
             <!-- Navbar Menu -->
             <div class="hidden lg:block" aria-label="main-navigation">
                 <ul id="navbar-items" class="lg:flex lg:items-center font-medium text-sm lg:space-x-8">
@@ -50,30 +44,38 @@ const menuItems = [
                             ))
                     }
                 </ul>
-            </div>      
-           
+            </div> 
+            <!--NavBar sm to lg-->
+            <div id="navbar-menu"  class="lg:hidden fixed bg-white top-0 -right-full w-full h-full transform-all duration-300">
+                    <ul id="navbar-links" class="flex flex-col text-center gap-y-6 pt-36 max-w-sm">
+                        {
+                            menuItems.map((item) => (
+                                    <li>                                    
+                                        <a href={item.path} class="navbar-link | inline-flex text-base font-medium  text-gray-950 transition-all duration-300 hover:text-gray-500">{item.title}</a>
+                                    </li>
+                                ))
+                        }
+                        <li class="py-2">                                    
+                         <Link href="#contacto" size="lg" class="navbar-link">Contacto</Link>                       
+                        </li>
+                    </ul>
+                   
+                </div>            
+            </div>
+            
+            <!--Contact-->
             <div class="hidden lg:flex items-center gap-4">              
                 <Link href="#contacto" size="md" block>Contacto</Link>          
             </div>
+            <!-- Navbar-toggle -->
+            <button id="navbar-toggle" type="button" aria-controls="navbar-menu" aria-label="Abrir Menú" aria-expanded="false" class="        pointer bg-transparent w-10 h-10 flex items-center justify-center flex-col transition-all duration-200 lg:hidden focus:bg-gray-800 hover:bg-gray-800">               
+                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-sm bg-gray-400"></span>
+                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-sm bg-gray-400"></span>
+                <span class="icon-bar | block w-6 h-[3px] m-[2px] rounded-sm bg-gray-400"></span>
+            </button>  
         </nav>
         
-          <!--NavBar sm to lg-->
-        <nav  class=" lg:hidden fixed top-16 left-0 z-40 w-full h-screen transition-transform duration-500">            
-            <div id="navbar-menu" class="overflow-y-auto py-32 px-8 h-full bg-white border-r border-gray-200 shadow-md" aria-label="main-navigation">                              
-                <ul id="navbar-links" class="space-y-4">
-                    {
-                        menuItems.map((item) => (
-                                <li>                                    
-                                    <a href={item.path} class="inline-flex text-base font-medium  text-gray-950 transition-all duration-200 hover:text-gray-500">{item.title}</a>
-                                </li>
-                            ))
-                    }
-                    <li class="py-2">                                    
-                     <Link href="#contacto" size="md" block>Contacto</Link>                       
-                    </li>
-                </ul> 
-            </div>            
-        </nav>
+            
         <!-- <div id="drawer-backdrop" class="hidden bg-gray-900 bg-opacity-80 fixed inset-0 z-30 h-screen"></div>        -->
        
         
@@ -118,25 +120,18 @@ const menuItems = [
 
     #navbar-menu{
         opacity: 0; 
-        visibility: hidden;
-        translate-y: -100%
+        visibility: hidden;        
     }
 
     #navbar-menu[open]{       
         opacity: 1; 
         visibility: visible;
-        translate-y: 0%; 
+        right: 0;         
     }
 
     .sticky {
         position: fixed; 
     }
-/* 
-    #navbar.opened #navbar-menu {
-        background-color: rgba(0, 0, 0, 0.4);
-        opacity: 1;
-        visibility: visible;
-    } */
 
    </style>
 
@@ -144,51 +139,21 @@ const menuItems = [
     const navbar = document.getElementById('navbar')
     const navbarMenu = document.getElementById('navbar-menu');
     const navbarToggle = document.getElementById('navbar-toggle');  
-    const navbarLinksContainer = navbarMenu.querySelector('#navbar-links')
+    const navbarLink = navbarMenu.querySelectorAll('.navbar-link')
     
 
-    const toggleMenu = () => {
-        let drawerBackrop = document.getElementById('drawer-backrop')
+    const toggleMenu = () => {       
         navbarMenu.toggleAttribute('open');
         const visibility = navbarToggle.getAttribute('aria-expanded')        
         if(visibility === 'false'){
             navbarToggle.setAttribute('aria-expanded', 'true')            
         } else if(visibility === 'true'){
-            navbarToggle.setAttribute('aria-expanded', 'false')
-            drawerBackrop.classList.toggle('hidden');
-        }
+            navbarToggle.setAttribute('aria-expanded', 'false')           
         
        };
+    }  
     
-    // close the navigation menu by clicking on the #navbar-menu mask layer
-    navbarLinksContainer.addEventListener('click', (clickEvent) => clickEvent.stopPropagation())
     navbarToggle.addEventListener('click', toggleMenu);
-    
-
-        
-    ///////////////////////////////////////////////
-    // Sticky Navigation //
-    //////////////////////////////////////////////
-    const navBar = document.getElementById('navbar');
-    const hero = document.getElementById('hero');
-
-    const stickyNav = (entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-        navBar.classList.add('sticky-nav');
-        } else {
-        navBar.classList.remove('sticky-nav');
-        }
-    });
-    };
-
-    const observer = new IntersectionObserver(stickyNav, {
-    threshold: 0.5
-    });
-
-    observer.observe(hero);
-
-
-    
+    navbarLink.forEach((navLink) =>  navLink.addEventListener('click', toggleMenu))     
 </script>
 
